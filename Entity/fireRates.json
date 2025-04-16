@@ -1,0 +1,4328 @@
+{
+  "6183afd850224f204c1da514": {
+    "id": "6183afd850224f204c1da514",
+    "name": "weapon_fn_mk17_762x51",
+    "shortName": "Mk 17",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_h_indoor_close": {
+          "PathID": "6334314355034838777"
+        },
+        "scar_h_indoor_silenced_close": {
+          "PathID": "-6359496520727020668"
+        },
+        "scar_h_outdoor_close": {
+          "PathID": "-6406820538480817740"
+        },
+        "scar_h_outdoor_silenced_close": {
+          "PathID": "1095011961334433329"
+        }
+      }
+    },
+    "mod": false
+  },
+  "6165ac306ef05c2ce828ef74": {
+    "id": "6165ac306ef05c2ce828ef74",
+    "name": "weapon_fn_mk17_762x51_fde",
+    "shortName": "Mk 17",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_h_indoor_close": {
+          "PathID": "6334314355034838777"
+        },
+        "scar_h_indoor_silenced_close": {
+          "PathID": "-6359496520727020668"
+        },
+        "scar_h_outdoor_close": {
+          "PathID": "-6406820538480817740"
+        },
+        "scar_h_outdoor_silenced_close": {
+          "PathID": "1095011961334433329"
+        }
+      }
+    },
+    "mod": false
+  },
+  "676176d362e0497044079f4c": {
+    "id": "676176d362e0497044079f4c",
+    "name": "weapon_x_products_x17_scar_17_762x51",
+    "shortName": "X-17",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_h_indoor_close": {
+          "PathID": "6334314355034838777"
+        },
+        "scar_h_indoor_silenced_close": {
+          "PathID": "-6359496520727020668"
+        },
+        "scar_h_outdoor_close": {
+          "PathID": "-6406820538480817740"
+        },
+        "scar_h_outdoor_silenced_close": {
+          "PathID": "1095011961334433329"
+        }
+      }
+    },
+    "mod": false
+  },
+  "6184055050224f204c1da540": {
+    "id": "6184055050224f204c1da540",
+    "name": "weapon_fn_mk16_556x45",
+    "shortName": "Mk 16",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_l_indoor_close": {
+          "PathID": "-7663684123809379214"
+        },
+        "scar_l_indoor_silenced_close": {
+          "PathID": "6925909816986366031"
+        },
+        "scar_l_outdoor_close": {
+          "PathID": "-5929133505367375558"
+        },
+        "scar_l_outdoor_silenced_close": {
+          "PathID": "6736092884329329993"
+        }
+      }
+    },
+    "mod": false
+  },
+  "618428466ef05c2ce828f218": {
+    "id": "618428466ef05c2ce828f218",
+    "name": "weapon_fn_mk16_556x45_fde",
+    "shortName": "Mk 16",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_l_indoor_close": {
+          "PathID": "-7663684123809379214"
+        },
+        "scar_l_indoor_silenced_close": {
+          "PathID": "6925909816986366031"
+        },
+        "scar_l_outdoor_close": {
+          "PathID": "-5929133505367375558"
+        },
+        "scar_l_outdoor_silenced_close": {
+          "PathID": "6736092884329329993"
+        }
+      }
+    },
+    "mod": false
+  },
+  "644674a13d52156624001fbc": {
+    "id": "644674a13d52156624001fbc",
+    "name": "weapon_kbp_9a91_9x39",
+    "shortName": "9A-91",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "9A91_indoor_close_loop": {
+          "PathID": "-2284391732252911052"
+        },
+        "9A91_indoor_silenced_close_loop": {
+          "PathID": "-5283343598198679075"
+        },
+        "9A91_outdoor_close_loop": {
+          "PathID": "582979551679638214"
+        },
+        "9A91_outdoor_silenced_close_loop": {
+          "PathID": "-1769872424774390451"
+        }
+      }
+    },
+    "mod": false
+  },
+  "645e0c6b3b381ede770e1cc9": {
+    "id": "645e0c6b3b381ede770e1cc9",
+    "name": "weapon_kbp_vsk94_9x39",
+    "shortName": "VSK-94",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "9A91_indoor_close_loop": {
+          "PathID": "-2284391732252911052"
+        },
+        "9A91_indoor_silenced_close_loop": {
+          "PathID": "-5283343598198679075"
+        },
+        "9A91_outdoor_close_loop": {
+          "PathID": "582979551679638214"
+        },
+        "9A91_outdoor_silenced_close_loop": {
+          "PathID": "-1769872424774390451"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5c07c60e0db834002330051f": {
+    "id": "5c07c60e0db834002330051f",
+    "name": "weapon_adar_2-15_556x45",
+    "shortName": "ADAR 2-15",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "adar_fire_indoor_close": {
+          "PathID": "-4493231347863166072"
+        },
+        "adar_fire_indoor_silenced_close": {
+          "PathID": "-4993874235173787765"
+        },
+        "adar_fire_outdoor_close": {
+          "PathID": "6601194011693480276"
+        },
+        "adar_fire_outdoor_silenced_close": {
+          "PathID": "-1463192730250360543"
+        }
+      }
+    },
+    "mod": false
+  },
+  "674d6121c09f69dfb201a888": {
+    "id": "674d6121c09f69dfb201a888",
+    "name": "weapon_aklys_defense_velociraptor_762x35",
+    "shortName": "Velociraptor .300 BLK",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "Velociraptor_indoor_close_loop": {
+          "PathID": "945388671370979094"
+        },
+        "Velociraptor_outdoor_close_loop": {
+          "PathID": "-6559325230143701571"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5cadfbf7ae92152ac412eeef": {
+    "id": "5cadfbf7ae92152ac412eeef",
+    "name": "weapon_ckib_ash_12_127x55",
+    "shortName": "ASh-12",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ash12_indoor_close_loop": {
+          "PathID": "-3861096414729939822"
+        },
+        "ash12_indoor_close_loop_silenced": {
+          "PathID": "6835886818667432301"
+        },
+        "ash12_outdoor_close_loop": {
+          "PathID": "-5836777987564692940"
+        },
+        "ash12_outdoor_close_loop_silenced": {
+          "PathID": "-2616436702984174522"
+        }
+      }
+    },
+    "mod": false
+  },
+  "57c44b372459772d2b39b8ce": {
+    "id": "57c44b372459772d2b39b8ce",
+    "name": "weapon_tochmash_val_9x39",
+    "shortName": "AS VAL",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vss_loop_indoor_close": {
+          "PathID": "-2533142957301807354"
+        },
+        "vss_loop_close": {
+          "PathID": "-4536540813710592312"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5de7bd7bfd6b4e6e2276dc25": {
+    "id": "5de7bd7bfd6b4e6e2276dc25",
+    "name": "weapon_bt_mp9n_9x19",
+    "shortName": "MP9-N",
+    "fireRate": 1100,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp9n_indoor_close_loop": {
+          "PathID": "-1902480496450247292"
+        },
+        "mp9n_indoor_close_silenced_loop": {
+          "PathID": "5146186563151517290"
+        },
+        "mp9n_outdoor_close_loop": {
+          "PathID": "-2849019119386147500"
+        },
+        "mp9n_outdoor_close_loop_silenced": {
+          "PathID": "893591268903873957"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5e00903ae9dc277128008b87": {
+    "id": "5e00903ae9dc277128008b87",
+    "name": "weapon_bt_mp9_9x19",
+    "shortName": "MP9",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp9_indoor_close_loop": {
+          "PathID": "-5127673679953693528"
+        },
+        "mp9_indoor_close_silenced_loop": {
+          "PathID": "2390118225435657208"
+        },
+        "mp9_outdoor_close_loop": {
+          "PathID": "-5022731534220049254"
+        },
+        "mp9_outdoor_close_loop_silenced": {
+          "PathID": "-4843747559887845542"
+        }
+      }
+    },
+    "mod": false
+  },
+  "606587252535c57a13424cfd": {
+    "id": "606587252535c57a13424cfd",
+    "name": "weapon_cmmg_mk47_762x39",
+    "shortName": "Mk47",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mutant_indoor_close": {
+          "PathID": "1117776859513583572"
+        },
+        "mutant_indoor_silenced_close": {
+          "PathID": "7074031901005818475"
+        },
+        "mutant_outdoor_close": {
+          "PathID": "-3282487880262697465"
+        },
+        "mutant_outdoor_silenced_close": {
+          "PathID": "4631414589018775227"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5447a9cd4bdc2dbd208b4567": {
+    "id": "5447a9cd4bdc2dbd208b4567",
+    "name": "weapon_colt_m4a1_556x45",
+    "shortName": "M4A1",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m4_fire_indoor_loop2": {
+          "PathID": "-3247868698438782021"
+        },
+        "m4_fire_indoor_one_shot": {
+          "PathID": "613730890145106640"
+        },
+        "m4_fire_outdoor_loop": {
+          "PathID": "5884916497275843946"
+        },
+        "m4_fire_silenced_loop": {
+          "PathID": "3078466324900170382"
+        },
+        "m4_outdoor_one_shot": {
+          "PathID": "-2312123283946690117"
+        },
+        "m4a1_fire_silenced_close_loop": {
+          "PathID": "-2162325824647493770"
+        },
+        "m4a1_silenced_indoor_close_loop": {
+          "PathID": "1914714398680053379"
+        }
+      }
+    },
+    "mod": false
+  },
+  "65268d8ecb944ff1e90ea385": {
+    "id": "65268d8ecb944ff1e90ea385",
+    "name": "weapon_zid_rpdn_762x39",
+    "shortName": "RPDN",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rpd_indoor_close_loop": {
+          "PathID": "5489934583809594402"
+        },
+        "rpd_outdoor_close_loop": {
+          "PathID": "369694416241770916"
+        },
+        "rpd_outdoor_silenced_close_loop": {
+          "PathID": "577227008779150692"
+        },
+        "rpd_indoor_silenced_close_loop": {
+          "PathID": "7563928983643813231"
+        }
+      }
+    },
+    "mod": false
+  },
+  "6513ef33e06849f06c0957ca": {
+    "id": "6513ef33e06849f06c0957ca",
+    "name": "weapon_zid_rpd_762x39",
+    "shortName": "RPD",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rpd_indoor_close_loop": {
+          "PathID": "5489934583809594402"
+        },
+        "rpd_outdoor_close_loop": {
+          "PathID": "369694416241770916"
+        },
+        "rpd_outdoor_silenced_close_loop": {
+          "PathID": "577227008779150692"
+        },
+        "rpd_indoor_silenced_close_loop": {
+          "PathID": "7563928983643813231"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5c488a752e221602b412af63": {
+    "id": "5c488a752e221602b412af63",
+    "name": "weapon_dt_mdr_556x45",
+    "shortName": "MDR",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mdr_indoor_close_loop": {
+          "PathID": "4272518022936336735"
+        },
+        "mdr_indoor_silenced_close_loop": {
+          "PathID": "-5128388343993261132"
+        },
+        "mdr_outdoor_close_loop": {
+          "PathID": "5990339270618725333"
+        },
+        "mdr_outdoor_silenced_close_loop": {
+          "PathID": "-9117646524904026268"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5dcbd56fdbd3d91b3e5468d5": {
+    "id": "5dcbd56fdbd3d91b3e5468d5",
+    "name": "weapon_dt_mdr_762x51",
+    "shortName": "MDR",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mdr308_indoor_close_loop": {
+          "PathID": "-8442455429952704563"
+        },
+        "mdr308_indoor_close_silenced_loop": {
+          "PathID": "1411025179378671506"
+        },
+        "mdr308_outdoor_close_loop": {
+          "PathID": "-1152681510818613704"
+        },
+        "mdr308_outdoor_close_silenced_loop": {
+          "PathID": "-6140113337402425784"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5b0bbe4e5acfc40dc528a72d": {
+    "id": "5b0bbe4e5acfc40dc528a72d",
+    "name": "weapon_dsa_sa58_762x51",
+    "shortName": "SA58",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "fal_indoor_close_loop": {
+          "PathID": "9177197984232781972"
+        },
+        "fal_indoor_close_silenced_loop": {
+          "PathID": "1466253226332829296"
+        },
+        "fal_outdoor_close_loop": {
+          "PathID": "3578637401750738261"
+        },
+        "fal_outdoor_close_silenced_loop": {
+          "PathID": "-3650761314474552472"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5cc82d76e24e8d00134b4b83": {
+    "id": "5cc82d76e24e8d00134b4b83",
+    "name": "weapon_fn_p90_57x28",
+    "shortName": "P90",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "p90_indoor_close_loop": {
+          "PathID": "126568195164677995"
+        },
+        "p90_indoor_close_loop_silenced": {
+          "PathID": "3073908896014806360"
+        },
+        "p90_outdoor_close_loop": {
+          "PathID": "7878965381690685266"
+        },
+        "p90_outdoor_close_loop_silenced": {
+          "PathID": "-2841858669419009988"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5bb2475ed4351e00853264e3": {
+    "id": "5bb2475ed4351e00853264e3",
+    "name": "weapon_hk_416a5_556x45",
+    "shortName": "HK 416A5",
+    "fireRate": 850,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "hk416_indoor_close_loop": {
+          "PathID": "8797488756446692992"
+        },
+        "hk416_indoor_silenced_close_loop": {
+          "PathID": "8086203756777418837"
+        },
+        "hk416_outdoor_close_loop": {
+          "PathID": "-4439201066941128968"
+        },
+        "hk416_outdoor_silenced_close_loop": {
+          "PathID": "3386350814492050671"
+        }
+      }
+    },
+    "mod": false
+  },
+  "6176aca650224f204c1da3fb": {
+    "id": "6176aca650224f204c1da3fb",
+    "name": "weapon_hk_g28_762x51",
+    "shortName": "G28",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "g28_fire_indoor_close": {
+          "PathID": "-859405093260204524"
+        },
+        "g28_fire_indoor_silenced_close": {
+          "PathID": "6075805264690693956"
+        },
+        "g28_fire_outdoor_close": {
+          "PathID": "6917643008808785523"
+        },
+        "g28_fire_outdoor_silenced_close": {
+          "PathID": "-840231680775817396"
+        }
+      }
+    },
+    "mod": false
+  },
+  "623063e994fc3f7b302a9696": {
+    "id": "623063e994fc3f7b302a9696",
+    "name": "weapon_hk_g36_556x45",
+    "shortName": "G36",
+    "fireRate": 750,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "g36_indoor_close": {
+          "PathID": "-5706887375206528619"
+        },
+        "g36_indoor_silenced_close": {
+          "PathID": "6849548677542283889"
+        },
+        "g36_outdoor_close": {
+          "PathID": "-1080422952425865417"
+        },
+        "g36_outdoor_silenced_close": {
+          "PathID": "-8833947249464896979"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5d2f0d8048f0356c925bc3b0": {
+    "id": "5d2f0d8048f0356c925bc3b0",
+    "name": "weapon_hk_mp5_kurtz_9x19",
+    "shortName": "MP5K-N",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp5_indoor_close_loop": {
+          "PathID": "-4608599101512519809"
+        },
+        "mp5_outdoor_close_loop": {
+          "PathID": "3023482428719832521"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5926bb2186f7744b1c6c6e60": {
+    "id": "5926bb2186f7744b1c6c6e60",
+    "name": "weapon_hk_mp5_navy3_9x19",
+    "shortName": "MP5",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp5_indoor_close_loop": {
+          "PathID": "-4608599101512519809"
+        },
+        "mp5_indoor_close_silenced_loop": {
+          "PathID": "-4711818659825933508"
+        },
+        "mp5_outdoor_close_loop": {
+          "PathID": "3023482428719832521"
+        },
+        "mp5_outdoor_close_silenced_loop": {
+          "PathID": "-384112775238231215"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5ba26383d4351e00334c93d9": {
+    "id": "5ba26383d4351e00334c93d9",
+    "name": "weapon_hk_mp7a1_46x30",
+    "shortName": "MP7A1",
+    "fireRate": 950,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp7_indoor_close_loop": {
+          "PathID": "-8058475052289554865"
+        },
+        "mp7_indoor_silenced_close_loop": {
+          "PathID": "-1971183825184921611"
+        },
+        "mp7_outdoor_close_loop": {
+          "PathID": "-1680573972447604330"
+        },
+        "mp7_outdoor_silenced_close_loop": {
+          "PathID": "424371089203433704"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5bd70322209c4d00d7167b8f": {
+    "id": "5bd70322209c4d00d7167b8f",
+    "name": "weapon_hk_mp7a2_46x30",
+    "shortName": "MP7A2",
+    "fireRate": 950,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp7_indoor_close_loop": {
+          "PathID": "-8058475052289554865"
+        },
+        "mp7_indoor_silenced_close_loop": {
+          "PathID": "-1971183825184921611"
+        },
+        "mp7_outdoor_close_loop": {
+          "PathID": "-1680573972447604330"
+        },
+        "mp7_outdoor_silenced_close_loop": {
+          "PathID": "424371089203433704"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5fc3e272f8b6a877a729eac5": {
+    "id": "5fc3e272f8b6a877a729eac5",
+    "name": "weapon_hk_ump_1143x23",
+    "shortName": "UMP 45",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ump_indoor_close": {
+          "PathID": "2846060965844500559"
+        },
+        "ump_indoor_silenced_close": {
+          "PathID": "-3606459062753931142"
+        },
+        "ump_outdoor_close": {
+          "PathID": "-7176859544259396146"
+        },
+        "ump_outdoor_silenced_close": {
+          "PathID": "-5624024326553489359"
+        }
+      }
+    },
+    "mod": false
+  },
+  "66992b349950f5f4cd06029f": {
+    "id": "66992b349950f5f4cd06029f",
+    "name": "weapon_iwi_uzi_9x19",
+    "shortName": "UZI",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "uzi_indoor_close_loop": {
+          "PathID": "-6182969086191587549"
+        },
+        "uzi_indoor_silenced_close_loop": {
+          "PathID": "12745926872230790"
+        },
+        "uzi_outdoor_close_loop": {
+          "PathID": "-6537510971486667816"
+        },
+        "uzi_outdoor_silenced_close_loop": {
+          "PathID": "-7536707726902776499"
+        }
+      }
+    },
+    "mod": false
+  },
+  "6680304edadb7aa61d00cef0": {
+    "id": "6680304edadb7aa61d00cef0",
+    "name": "weapon_iwi_uzi_pro_pistol_9x19",
+    "shortName": "UZI PRO Pistol",
+    "fireRate": 1075,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "uzip_indoor_close_loop": {
+          "PathID": "-1612421505952380247"
+        },
+        "uzip_indoor_silenced_close_loop": {
+          "PathID": "620682340013754144"
+        },
+        "uzip_outdoor_close_loop": {
+          "PathID": "267194164025842677"
+        },
+        "uzip_outdoor_silenced_close_loop": {
+          "PathID": "-8102793707553965436"
+        }
+      }
+    },
+    "mod": false
+  },
+  "668e71a8dadf42204c032ce1": {
+    "id": "668e71a8dadf42204c032ce1",
+    "name": "weapon_iwi_uzi_pro_smg_9x19",
+    "shortName": "UZI PRO SMG",
+    "fireRate": 1075,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "uzip_indoor_close_loop": {
+          "PathID": "-1612421505952380247"
+        },
+        "uzip_indoor_silenced_close_loop": {
+          "PathID": "620682340013754144"
+        },
+        "uzip_outdoor_close_loop": {
+          "PathID": "267194164025842677"
+        },
+        "uzip_outdoor_silenced_close_loop": {
+          "PathID": "-8102793707553965436"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5ac66cb05acfc40198510a10": {
+    "id": "5ac66cb05acfc40198510a10",
+    "name": "weapon_izhmash_ak101_556x45",
+    "shortName": "AK-101",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak101_indoor_close_loop": {
+          "PathID": "-4536678112468782156"
+        },
+        "ak101_indoor_silenced_close_loop": {
+          "PathID": "734350649757532518"
+        },
+        "ak101_outdoor_close_loop": {
+          "PathID": "5869753835265602700"
+        },
+        "ak101_outdoor_silenced_close_loop": {
+          "PathID": "8202468827784821393"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5ac66d015acfc400180ae6e4": {
+    "id": "5ac66d015acfc400180ae6e4",
+    "name": "weapon_izhmash_ak102_556x45",
+    "shortName": "AK-102",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak102_indoor_close_loop": {
+          "PathID": "3808118659121591639"
+        },
+        "ak102_indoor_silenced_close_loop": {
+          "PathID": "2489841818115563574"
+        },
+        "ak102_outdoor_close_loop": {
+          "PathID": "4956173462097932238"
+        },
+        "ak102_outdoor_silenced_close_loop": {
+          "PathID": "786874207146757796"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5ac66d2e5acfc43b321d4b53": {
+    "id": "5ac66d2e5acfc43b321d4b53",
+    "name": "weapon_izhmash_ak103_762x39",
+    "shortName": "AK-103",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5ac66d725acfc43b321d4b60": {
+    "id": "5ac66d725acfc43b321d4b60",
+    "name": "weapon_izhmash_ak104_762x39",
+    "shortName": "AK-104",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5ac66d9b5acfc4001633997a": {
+    "id": "5ac66d9b5acfc4001633997a",
+    "name": "weapon_izhmash_ak105_545x39",
+    "shortName": "AK-105",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak105_close_loop": {
+          "PathID": "-3554889328243803226"
+        },
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": false
+  },
+  "6499849fc93611967b034949": {
+    "id": "6499849fc93611967b034949",
+    "name": "weapon_izhmash_ak12_545x39",
+    "shortName": "AK-12",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak12_indoor_close_loop": {
+          "PathID": "-355007057781392776"
+        },
+        "ak12_indoor_silenced_close_loop": {
+          "PathID": "4132997730619520217"
+        },
+        "ak12_outdoor_close_loop": {
+          "PathID": "-2947922506372296084"
+        },
+        "ak12_outdoor_silence_close_loop": {
+          "PathID": "9072438792968918584"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5ac4cd105acfc40016339859": {
+    "id": "5ac4cd105acfc40016339859",
+    "name": "weapon_izhmash_ak74m_545x39",
+    "shortName": "AK-74M",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74m_indoor_close_loop": {
+          "PathID": "-3455514383449969602"
+        },
+        "ak74m_indoor_silenced_close_loop": {
+          "PathID": "8388259700852334973"
+        },
+        "ak74m_outdoor_close_loop": {
+          "PathID": "85456129691124582"
+        },
+        "ak74m_outdoor_silenced_close_loop": {
+          "PathID": "-8431062450337570867"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5644bd2b4bdc2d3b4c8b4572": {
+    "id": "5644bd2b4bdc2d3b4c8b4572",
+    "name": "weapon_izhmash_ak74n_545x39",
+    "shortName": "AK-74N",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5bf3e03b0db834001d2c4a9c": {
+    "id": "5bf3e03b0db834001d2c4a9c",
+    "name": "weapon_izhmash_ak74_545x39",
+    "shortName": "AK-74",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5a0ec13bfcdbcb00165aa685": {
+    "id": "5a0ec13bfcdbcb00165aa685",
+    "name": "weapon_izhmash_akmn_762x39",
+    "shortName": "AKMN",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5abcbc27d8ce8700182eceeb": {
+    "id": "5abcbc27d8ce8700182eceeb",
+    "name": "weapon_izhmash_akmsn_762x39",
+    "shortName": "AKMSN",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "59ff346386f77477562ff5e2": {
+    "id": "59ff346386f77477562ff5e2",
+    "name": "weapon_izhmash_akms_762x39",
+    "shortName": "AKMS",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "59d6088586f774275f37482f": {
+    "id": "59d6088586f774275f37482f",
+    "name": "weapon_izhmash_akm_762x39",
+    "shortName": "AKM",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5ab8e9fcd8ce870019439434": {
+    "id": "5ab8e9fcd8ce870019439434",
+    "name": "weapon_izhmash_aks74n_545x39",
+    "shortName": "AKS-74N",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5839a40f24597726f856b511": {
+    "id": "5839a40f24597726f856b511",
+    "name": "weapon_izhmash_aks74ub_545x39",
+    "shortName": "AKS-74UB",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksu_close_indoor_loop": {
+          "PathID": "683860518384668037"
+        },
+        "aksu_close_indoor_loop_silenced": {
+          "PathID": "-5501171236208449142"
+        },
+        "aksu_close_loop": {
+          "PathID": "6273979998004980824"
+        },
+        "aksu_close_loop_silenced": {
+          "PathID": "-8714529593898718938"
+        }
+      }
+    },
+    "mod": false
+  },
+  "583990e32459771419544dd2": {
+    "id": "583990e32459771419544dd2",
+    "name": "weapon_izhmash_aks74un_545x39",
+    "shortName": "AKS-74UN",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksu_close_indoor_loop": {
+          "PathID": "683860518384668037"
+        },
+        "aksu_close_indoor_loop_silenced": {
+          "PathID": "-5501171236208449142"
+        },
+        "aksu_close_loop": {
+          "PathID": "6273979998004980824"
+        },
+        "aksu_close_loop_silenced": {
+          "PathID": "-8714529593898718938"
+        }
+      }
+    },
+    "mod": false
+  },
+  "57dc2fa62459775949412633": {
+    "id": "57dc2fa62459775949412633",
+    "name": "weapon_izhmash_aks74u_545x39",
+    "shortName": "AKS-74U",
+    "fireRate": 850,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksu_close_indoor_loop": {
+          "PathID": "683860518384668037"
+        },
+        "aksu_close_indoor_loop_silenced": {
+          "PathID": "-5501171236208449142"
+        },
+        "aksu_close_loop": {
+          "PathID": "6273979998004980824"
+        },
+        "aksu_close_loop_silenced": {
+          "PathID": "-8714529593898718938"
+        }
+      }
+    },
+    "mod": true
+  },
+  "5bf3e0490db83400196199af": {
+    "id": "5bf3e0490db83400196199af",
+    "name": "weapon_izhmash_aks74_545x39",
+    "shortName": "AKS-74",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": false
+  },
+  "64ca3d3954fc657e230529cc": {
+    "id": "64ca3d3954fc657e230529cc",
+    "name": "weapon_zid_pkp_762x54r",
+    "shortName": "PKP",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "pkm_indoor_close_loop": {
+          "PathID": "6240137707529707382"
+        },
+        "pkm_outdoor_close_loop": {
+          "PathID": "4210236611400103405"
+        }
+      }
+    },
+    "mod": false
+  },
+  "657857faeff4c850222dff1b": {
+    "id": "657857faeff4c850222dff1b",
+    "name": "weapon_zid_pktm_762x54r",
+    "shortName": "PKTM",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "pkm_indoor_close_loop": {
+          "PathID": "6240137707529707382"
+        },
+        "pkm_outdoor_close_loop": {
+          "PathID": "4210236611400103405"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5f2a9575926fd9352339381f": {
+    "id": "5f2a9575926fd9352339381f",
+    "name": "weapon_kel_tec_rfb_762x51",
+    "shortName": "RFB",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rfb_fire_close": {
+          "PathID": "-5872583713820789980"
+        },
+        "rfb_fire_indoor_close": {
+          "PathID": "-1374303296710109189"
+        },
+        "rfb_fire_indoor_silenced_close": {
+          "PathID": "-6408959824771275850"
+        },
+        "rfb_fire_silenced_close": {
+          "PathID": "-5108423174048777089"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5df8ce05b11454561e39243b": {
+    "id": "5df8ce05b11454561e39243b",
+    "name": "weapon_kac_sr25_762x51",
+    "shortName": "SR-25",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "sr25_fire_indoor_close": {
+          "PathID": "-6225726425947623877"
+        },
+        "sr25_fire_indoor_silenced_close": {
+          "PathID": "-7726302493974801495"
+        },
+        "sr25_fire_outdoor_close": {
+          "PathID": "-2870025746948453934"
+        },
+        "sr25_fire_outdoor_silenced_close": {
+          "PathID": "4233168133238389310"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5d43021ca4b9362eab4b5e25": {
+    "id": "5d43021ca4b9362eab4b5e25",
+    "name": "weapon_lone_star_tx15_designated_marksman_556x45",
+    "shortName": "TX-15 DML",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "tx15_fire_indoor_close": {
+          "PathID": "-2144694374456582284"
+        },
+        "tx15_fire_indoor_silenced_close": {
+          "PathID": "2722581166074314134"
+        },
+        "tx15_fire_outdoor_close": {
+          "PathID": "-1266353300265678837"
+        },
+        "tx15_fire_outdoor_silenced_close": {
+          "PathID": "1625786333055883573"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5c501a4d2e221602b412b540": {
+    "id": "5c501a4d2e221602b412b540",
+    "name": "weapon_molot_vepr_hunter_vpo-101_762x51",
+    "shortName": "VPO-101 Vepr-Hunter",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "dvl_fire_indoor_close": {
+          "PathID": "5060011270007784677"
+        },
+        "dvl_fire_close": {
+          "PathID": "8935612715843696608"
+        },
+        "dvl_fire_silenced_indoor_close": {
+          "PathID": "4160586294639073267"
+        },
+        "vpo101_fire_indoor_silenced_close": {
+          "PathID": "1379762016742939716"
+        },
+        "vpo101_fire_silenced_close": {
+          "PathID": "4024617218498360858"
+        }
+      }
+    },
+    "mod": false
+  },
+  "59e6152586f77473dc057aa1": {
+    "id": "59e6152586f77473dc057aa1",
+    "name": "weapon_molot_vepr_km_vpo_136_762x39",
+    "shortName": "VPO-136 Vepr-KM",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "59e6687d86f77411d949b251": {
+    "id": "59e6687d86f77411d949b251",
+    "name": "weapon_molot_akm_vpo_209_366_TKM",
+    "shortName": "VPO-209",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vpo209_fire_close": {
+          "PathID": "-1982207209802398677"
+        },
+        "vpo209_fire_close_silenced": {
+          "PathID": "6370608628865405697"
+        },
+        "vpo209_fire_indoor_close": {
+          "PathID": "-7797057941204705353"
+        },
+        "vpo209_fire_indoor_close_silenced": {
+          "PathID": "-2868660629612472978"
+        }
+      }
+    },
+    "mod": false
+  },
+  "66ffa9b66e19cc902401c5e8": {
+    "id": "66ffa9b66e19cc902401c5e8",
+    "name": "weapon_mps_aa_12_gen_1_12g",
+    "shortName": "AA-12 Gen 1",
+    "fireRate": 330,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aa12_indoor_close_loop": {
+          "PathID": "-2382250443220992574"
+        },
+        "aa12_outdoor_close_loop": {
+          "PathID": "216935825518268272"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67124dcfa3541f2a1f0e788b": {
+    "id": "67124dcfa3541f2a1f0e788b",
+    "name": "weapon_mps_aa_12_gen_2_12g",
+    "shortName": "AA-12 Gen 2",
+    "fireRate": 330,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aa12_indoor_close_loop": {
+          "PathID": "-2382250443220992574"
+        },
+        "aa12_outdoor_close_loop": {
+          "PathID": "216935825518268272"
+        }
+      }
+    },
+    "mod": false
+  },
+  "59984ab886f7743e98271174": {
+    "id": "59984ab886f7743e98271174",
+    "name": "weapon_izhmash_pp-19-01_9x19",
+    "shortName": "PP-19-01",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vityaz_indoor_close_loop": {
+          "PathID": "2934543780003311308"
+        },
+        "vityaz_indoor_close_silenced_loop": {
+          "PathID": "-8849400844501803002"
+        },
+        "vityaz_outdoor_close_loop": {
+          "PathID": "1951458528056602905"
+        },
+        "vityaz_outdoor_close_silenced_loop": {
+          "PathID": "-7862759789999457454"
+        }
+      }
+    },
+    "mod": false
+  },
+  "57f3c6bd24597738e730fa2f": {
+    "id": "57f3c6bd24597738e730fa2f",
+    "name": "weapon_zmz_pp-91-01_9x18pm",
+    "shortName": "PP-91-01 Kedr-B",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "kedr_loop_close": {
+          "PathID": "4952411200996517421"
+        },
+        "kedr_loop_indoor_close": {
+          "PathID": "-6172839554145328924"
+        },
+        "kedr_loop_silenced_close": {
+          "PathID": "-9122518689908063703"
+        },
+        "kedr_loop_silenced_indoor_close": {
+          "PathID": "-5648181312215455899"
+        }
+      }
+    },
+    "mod": false
+  },
+  "57d14d2524597714373db789": {
+    "id": "57d14d2524597714373db789",
+    "name": "weapon_zmz_pp-91_9x18pm",
+    "shortName": "PP-91 Kedr",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "kedr_loop_close": {
+          "PathID": "4952411200996517421"
+        },
+        "kedr_loop_indoor_close": {
+          "PathID": "-6172839554145328924"
+        },
+        "kedr_loop_silenced_close": {
+          "PathID": "-9122518689908063703"
+        },
+        "kedr_loop_silenced_indoor_close": {
+          "PathID": "-5648181312215455899"
+        }
+      }
+    },
+    "mod": false
+  },
+  "57f4c844245977379d5c14d1": {
+    "id": "57f4c844245977379d5c14d1",
+    "name": "weapon_zmz_pp-9_9x18pmm",
+    "shortName": "PP-9 Klin",
+    "fireRate": 1000,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "kedr_loop_close": {
+          "PathID": "4952411200996517421"
+        },
+        "kedr_loop_indoor_close": {
+          "PathID": "-6172839554145328924"
+        },
+        "kedr_loop_silenced_close": {
+          "PathID": "-9122518689908063703"
+        },
+        "kedr_loop_silenced_indoor_close": {
+          "PathID": "-5648181312215455899"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5ea03f7400685063ec28bfa8": {
+    "id": "5ea03f7400685063ec28bfa8",
+    "name": "weapon_zis_ppsh41_762x25",
+    "shortName": "PPSh41",
+    "fireRate": 1000,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ppsh_indoor_close_loop": {
+          "PathID": "-8549851960204794782"
+        },
+        "ppsh_outdoor_close_loop": {
+          "PathID": "-6747161504324869413"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5a367e5dc4a282000e49738f": {
+    "id": "5a367e5dc4a282000e49738f",
+    "name": "weapon_remington_r11_rsass_762x51",
+    "shortName": "RSASS",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rsass_close_silenced1": {
+          "PathID": "948917592274674329"
+        },
+        "rsass_fire_close5": {
+          "PathID": "8977049043381327118"
+        },
+        "rsass_fire_indoor_close": {
+          "PathID": "-3345139455451341462"
+        },
+        "rsass_indoor_close_silenced1": {
+          "PathID": "4976548528938732531"
+        }
+      }
+    },
+    "mod": false
+  },
+  "628a60ae6b1d481ff772e9c8": {
+    "id": "628a60ae6b1d481ff772e9c8",
+    "name": "weapon_rifle_dynamics_704_762x39",
+    "shortName": "RD-704",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rd704_indoor_close": {
+          "PathID": "5179679641296489286"
+        },
+        "rd704_indoor_silenced_close": {
+          "PathID": "2293149662358201246"
+        },
+        "rd704_outdoor_close": {
+          "PathID": "-4153996004605734164"
+        },
+        "rd704_outdoor_silenced_close": {
+          "PathID": "-6893556914844413966"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5beed0f50db834001c062b12": {
+    "id": "5beed0f50db834001c062b12",
+    "name": "weapon_izhmash_rpk16_545x39",
+    "shortName": "RPK-16",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rpk16_indoor_close_loop": {
+          "PathID": "-8363437432865516128"
+        },
+        "rpk16_indoor_silenced_close_loop": {
+          "PathID": "4594496003933188866"
+        },
+        "rpk16_outdoor_close_loop": {
+          "PathID": "-7669458784997944966"
+        },
+        "rpk16_outdoor_silenced_close_loop": {
+          "PathID": "-2711909126576370142"
+        }
+      }
+    },
+    "mod": false
+  },
+  "628b5638ad252a16da6dd245": {
+    "id": "628b5638ad252a16da6dd245",
+    "name": "weapon_sag_ak545_545x39",
+    "shortName": "AK-545",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksag_indoor_close": {
+          "PathID": "-5382769002259221985"
+        },
+        "aksag_indoor_silenced_close": {
+          "PathID": "-8377031906836359623"
+        },
+        "aksag_outdoor_close": {
+          "PathID": "1800395862902392113"
+        },
+        "aksag_outdoor_silenced_close": {
+          "PathID": "1061013878031422998"
+        }
+      }
+    },
+    "mod": false
+  },
+  "628b9c37a733087d0d7fe84b": {
+    "id": "628b9c37a733087d0d7fe84b",
+    "name": "weapon_sag_ak545_short_545x39",
+    "shortName": "AK-545 Short",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksag_indoor_close": {
+          "PathID": "-5382769002259221985"
+        },
+        "aksag_indoor_silenced_close": {
+          "PathID": "-8377031906836359623"
+        },
+        "aksag_outdoor_close": {
+          "PathID": "1800395862902392113"
+        },
+        "aksag_outdoor_silenced_close": {
+          "PathID": "1061013878031422998"
+        }
+      }
+    },
+    "mod": false
+  },
+  "674fe9a75e51f1c47c04ec23": {
+    "id": "674fe9a75e51f1c47c04ec23",
+    "name": "weapon_kiba_saiga12k_fa_12g",
+    "shortName": "Saiga-12K FA",
+    "fireRate": 450,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "saiga12fa_indoor_close_loop": {
+          "PathID": "-5241486878944820211"
+        },
+        "saiga12fa_indoor_close_silenced_loop": {
+          "PathID": "-1110732529293461165"
+        },
+        "saiga12fa_outdoor_close_loop": {
+          "PathID": "-5861728311255933965"
+        },
+        "saiga12fa_outdoor_close_silenced_loop": {
+          "PathID": "5560489376220671471"
+        }
+      }
+    },
+    "mod": false
+  },
+  "576165642459773c7a400233": {
+    "id": "576165642459773c7a400233",
+    "name": "weapon_izhmash_saiga12k_10_12g",
+    "shortName": "Saiga-12K FA",
+    "fireRate": 450,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "saiga12fa_indoor_close_loop": {
+          "PathID": "-5241486878944820211"
+        },
+        "saiga12fa_indoor_close_silenced_loop": {
+          "PathID": "-1110732529293461165"
+        },
+        "saiga12fa_outdoor_close_loop": {
+          "PathID": "-5861728311255933965"
+        },
+        "saiga12fa_outdoor_close_silenced_loop": {
+          "PathID": "5560489376220671471"
+        }
+      }
+    },
+    "mod": true
+  },
+  "59f9cabd86f7743a10721f46": {
+    "id": "59f9cabd86f7743a10721f46",
+    "name": "weapon_izhmash_saiga_9_9x19",
+    "shortName": "Saiga-9",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vityaz_indoor_close_loop": {
+          "PathID": "2934543780003311308"
+        },
+        "vityaz_indoor_close_silenced_loop": {
+          "PathID": "-8849400844501803002"
+        },
+        "vityaz_outdoor_close_loop": {
+          "PathID": "1313842937223233044"
+        },
+        "vityaz_outdoor_close_silenced_loop": {
+          "PathID": "-7862759789999457454"
+        }
+      }
+    },
+    "mod": false
+  },
+  "65290f395ae2ae97b80fdf2d": {
+    "id": "65290f395ae2ae97b80fdf2d",
+    "name": "weapon_sig_mcx_spear_68x51",
+    "shortName": "SPEAR 6.8",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mcx_spear_indoor_close_loop": {
+          "PathID": "4980588396569496868"
+        },
+        "mcx_spear_indoor_silenced_close_loop": {
+          "PathID": "-1149696331841621476"
+        },
+        "mcx_spear_outdoor_close_loop": {
+          "PathID": "-4732383430793430655"
+        },
+        "mcx_spear_outdoor_silenced_close_loop": {
+          "PathID": "-5524460746489190959"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5fbcc1d9016cce60e8341ab3": {
+    "id": "5fbcc1d9016cce60e8341ab3",
+    "name": "weapon_sig_mcx_gen1_762x35",
+    "shortName": "MCX .300 BLK",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mcx_indoor_close": {
+          "PathID": "2729468533986855424"
+        },
+        "mcx_indoor_silenced_close": {
+          "PathID": "-1745147967591950699"
+        },
+        "mcx_outdoor_close": {
+          "PathID": "6361499275794952281"
+        },
+        "mcx_outdoor_silenced_close": {
+          "PathID": "3962460729230920721"
+        }
+      }
+    },
+    "mod": false
+  },
+  "58948c8e86f77409493f7266": {
+    "id": "58948c8e86f77409493f7266",
+    "name": "weapon_sig_mpx_9x19",
+    "shortName": "MPX",
+    "fireRate": 850,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mpx_indoor_close_loop": {
+          "PathID": "-7223947466031143044"
+        },
+        "mpx_indoor_close_silenced_loop": {
+          "PathID": "3295504215277962161"
+        },
+        "mpx_outdoor_close_loop": {
+          "PathID": "2609996956559964794"
+        },
+        "mpx_outdoor_close_silenced_loop": {
+          "PathID": "-372600922957637614"
+        }
+      }
+    },
+    "mod": false
+  },
+  "60339954d62c9b14ed777c06": {
+    "id": "60339954d62c9b14ed777c06",
+    "name": "weapon_stmarms_stm_9_9x19",
+    "shortName": "STM-9",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "stm9_fire_indoor_close": {
+          "PathID": "-5046813033040904391"
+        },
+        "stm9_fire_indoor_silenced_close": {
+          "PathID": "400182704750156711"
+        },
+        "stm9_fire_outdoor_close": {
+          "PathID": "-9087513269847321139"
+        },
+        "stm9_fire_outdoor_silenced_close": {
+          "PathID": "8830076691648973028"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5aafa857e5b5b00018480968": {
+    "id": "5aafa857e5b5b00018480968",
+    "name": "weapon_springfield_m1a_762x51",
+    "shortName": "M1A",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m1a_fire_close1": {
+          "PathID": "4001882778376623089"
+        },
+        "m1a_fire_indoor_close": {
+          "PathID": "322993173178286352"
+        },
+        "m1a_fire_silenced_close1": {
+          "PathID": "87724137447412596"
+        },
+        "m1a_fire_silenced_indoor_close1": {
+          "PathID": "-1701669379095912245"
+        }
+      }
+    },
+    "mod": false
+  },
+  "62e14904c2699c0ec93adc47": {
+    "id": "62e14904c2699c0ec93adc47",
+    "name": "weapon_tochmash_sr2m_veresk_9x21",
+    "shortName": "SR-2M",
+    "fireRate": 950,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "sr2m_indoor_close_loop": {
+          "PathID": "-3425288369836108022"
+        },
+        "sr2m_indoor_close_loop_silenced": {
+          "PathID": "7401051452344585126"
+        },
+        "sr2m_outdoor_close_loop": {
+          "PathID": "-5053828931164339028"
+        },
+        "sr2m_outdoor_close_loop_silenced": {
+          "PathID": "7114760382689226324"
+        }
+      }
+    },
+    "mod": false
+  },
+  "651450ce0e00edc794068371": {
+    "id": "651450ce0e00edc794068371",
+    "name": "weapon_tochmash_sr3m_9x39",
+    "shortName": "SR-3M",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "sr3m_indoor_close_loop": {
+          "PathID": "-5128986772447010581"
+        },
+        "sr3m_indoor_silenced_close_loop": {
+          "PathID": "6494225972768189659"
+        },
+        "sr3m_outdoor_close_loop": {
+          "PathID": "8938689719885183041"
+        },
+        "sr3m_outdoor_silenced_close_loop": {
+          "PathID": "-6170814883514272535"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5a17f98cfcdbcb0980087290": {
+    "id": "5a17f98cfcdbcb0980087290",
+    "name": "weapon_molot_aps_9x18pm",
+    "shortName": "APS",
+    "fireRate": 750,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aps_indoor_close_loop": {
+          "PathID": "-7143198952497608628"
+        },
+        "aps_indoor_silenced_close_loop": {
+          "PathID": "-8212711999644829243"
+        },
+        "aps_outdoor_close_loop": {
+          "PathID": "3521792743234881488"
+        },
+        "aps_outdoor_silenced_close_loop": {
+          "PathID": "3433513666625612856"
+        }
+      }
+    },
+    "mod": false
+  },
+  "62e7c4fba689e8c9c50dfc38": {
+    "id": "62e7c4fba689e8c9c50dfc38",
+    "name": "weapon_steyr_aug_a1_556x45",
+    "shortName": "AUG A1",
+    "fireRate": 715,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aug_indoor_close_loop": {
+          "PathID": "-1557371118188782202"
+        },
+        "aug_indoor_close_silenced_loop": {
+          "PathID": "5810084616819048396"
+        },
+        "aug_outdoor_close_loop": {
+          "PathID": "-5829012793079215859"
+        },
+        "aug_outdoor_close_silenced_loop": {
+          "PathID": "-6103487653302314352"
+        }
+      }
+    },
+    "mod": false
+  },
+  "63171672192e68c5460cebc5": {
+    "id": "63171672192e68c5460cebc5",
+    "name": "weapon_steyr_aug_a3_m1_556x45",
+    "shortName": "AUG A3",
+    "fireRate": 715,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aug_indoor_close_loop": {
+          "PathID": "-1557371118188782202"
+        },
+        "aug_indoor_close_silenced_loop": {
+          "PathID": "5810084616819048396"
+        },
+        "aug_outdoor_close_loop": {
+          "PathID": "-5829012793079215859"
+        },
+        "aug_outdoor_close_silenced_loop": {
+          "PathID": "-6103487653302314352"
+        }
+      }
+    },
+    "mod": false
+  },
+  "6718817435e3cfd9550d2c27": {
+    "id": "6718817435e3cfd9550d2c27",
+    "name": "weapon_steyr_aug_a3_m1_556x45_blk",
+    "shortName": "AUG A3",
+    "fireRate": 715,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aug_indoor_close_loop": {
+          "PathID": "-1557371118188782202"
+        },
+        "aug_indoor_close_silenced_loop": {
+          "PathID": "5810084616819048396"
+        },
+        "aug_outdoor_close_loop": {
+          "PathID": "-5829012793079215859"
+        },
+        "aug_outdoor_close_silenced_loop": {
+          "PathID": "-6103487653302314352"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5c46fbd72e2216398b5a8c9c": {
+    "id": "5c46fbd72e2216398b5a8c9c",
+    "name": "weapon_izhmash_svd_s_762x54",
+    "shortName": "SVDS",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "svd_fire_close": {
+          "PathID": "7757872161692781506"
+        },
+        "svd_fire_close_silenced": {
+          "PathID": "-664841478932331833"
+        },
+        "svd_fire_indoor_close": {
+          "PathID": "-5073579670459727961"
+        },
+        "svd_fire_indoor_silenced_close": {
+          "PathID": "-6419197763589713957"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5fb64bc92b1b027b1f50bcf2": {
+    "id": "5fb64bc92b1b027b1f50bcf2",
+    "name": "weapon_tdi_kriss_vector_gen_2_1143x23",
+    "shortName": "Vector .45ACP",
+    "fireRate": 1100,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vector_45_close": {
+          "PathID": "-1422027251562597125"
+        },
+        "vector_45_indoor_close": {
+          "PathID": "-6414313950266087376"
+        },
+        "vector_45_indoor_silenced_close": {
+          "PathID": "6267953415303256920"
+        },
+        "vector_45_silenced_close": {
+          "PathID": "-7443768023548286841"
+        }
+      }
+    },
+    "mod": false
+  },
+  "5fc3f2d5900b1d5091531e57": {
+    "id": "5fc3f2d5900b1d5091531e57",
+    "name": "weapon_tdi_kriss_vector_gen_2_9x19",
+    "shortName": "Vector 9x19",
+    "fireRate": 950,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vector_9mm_indoor_close": {
+          "PathID": "7136986876349805058"
+        },
+        "vector_9mm_indoor_silenced_close": {
+          "PathID": "-1297744213128800461"
+        },
+        "vector_9mm_outdoor_close": {
+          "PathID": "-618125472852980413"
+        },
+        "vector_9mm_outdoor_silenced_close": {
+          "PathID": "-2340266213532587953"
+        }
+      }
+    },
+    "mod": false
+  },
+  "6410733d5dd49d77bd07847e": {
+    "id": "6410733d5dd49d77bd07847e",
+    "name": "weapon_toz_avt_40_762x54r",
+    "shortName": "AVT-40",
+    "fireRate": 750,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "avt_indoor_close_loop": {
+          "PathID": "-6435728483424715677"
+        },
+        "avt_outdoor_close_loop": {
+          "PathID": "851149926728354238"
+        }
+      }
+    },
+    "mod": false
+  },
+  "65fb023261d5829b2d090755": {
+    "id": "65fb023261d5829b2d090755",
+    "name": "weapon_usord_m60e4_762x51",
+    "shortName": "Mk 43 Mod 1",
+    "fireRate": 550,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m60_indoor_close_loop": {
+          "PathID": "-6127504020429042288"
+        },
+        "m60_indoor_silenced_close_loop": {
+          "PathID": "-5735899469389828113"
+        },
+        "m60_outdoor_close_loop": {
+          "PathID": "-329893023454838472"
+        },
+        "m60_outdoor_silenced_close_loop": {
+          "PathID": "-2085911368043372258"
+        }
+      }
+    },
+    "mod": false
+  },
+  "661ceb1b9311543c7104149b": {
+    "id": "661ceb1b9311543c7104149b",
+    "name": "weapon_usord_m60e6_762x51",
+    "shortName": "M60E6",
+    "fireRate": 550,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m60_indoor_close_loop": {
+          "PathID": "-6127504020429042288"
+        },
+        "m60_indoor_silenced_close_loop": {
+          "PathID": "-5735899469389828113"
+        },
+        "m60_outdoor_close_loop": {
+          "PathID": "-329893023454838472"
+        },
+        "m60_outdoor_silenced_close_loop": {
+          "PathID": "-2085911368043372258"
+        }
+      }
+    },
+    "mod": false
+  },
+  "661cec09b2c6356b4d0c7a36": {
+    "id": "661cec09b2c6356b4d0c7a36",
+    "name": "weapon_usord_m60e6_762x51_fde",
+    "shortName": "M60E6",
+    "fireRate": 550,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m60_indoor_close_loop": {
+          "PathID": "-6127504020429042288"
+        },
+        "m60_indoor_silenced_close_loop": {
+          "PathID": "-5735899469389828113"
+        },
+        "m60_outdoor_close_loop": {
+          "PathID": "-329893023454838472"
+        },
+        "m60_outdoor_silenced_close_loop": {
+          "PathID": "-2085911368043372258"
+        }
+      }
+    },
+    "mod": false
+  },
+  "57838ad32459774a17445cd2": {
+    "id": "57838ad32459774a17445cd2",
+    "name": "weapon_tochmash_vss_9x39",
+    "shortName": "VSS Vintorez",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vss_loop_close": {
+          "PathID": "-4536540813710592312"
+        },
+        "vss_loop_indoor_close": {
+          "PathID": "-2533142957301807354"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000003": {
+    "id": "67d716557e2937472c000003",
+    "name": "weapon_molot_vepr_hunter_vpo-101_762x51_mod",
+    "shortName": "VPO-101 Vepr-Hunter (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "dvl_fire_indoor_close": {
+          "PathID": "5060011270007784677"
+        },
+        "dvl_fire_close": {
+          "PathID": "8935612715843696608"
+        },
+        "dvl_fire_silenced_indoor_close": {
+          "PathID": "4160586294639073267"
+        },
+        "vpo101_fire_indoor_silenced_close": {
+          "PathID": "1379762016742939716"
+        },
+        "vpo101_fire_silenced_close": {
+          "PathID": "4024617218498360858"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000004": {
+    "id": "67d716557e2937472c000004",
+    "name": "weapon_toz_avt_40_762x54r_mod",
+    "shortName": "AVT-40 (clone)",
+    "fireRate": 750,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "avt_indoor_close_loop": {
+          "PathID": "-6435728483424715677"
+        },
+        "avt_outdoor_close_loop": {
+          "PathID": "851149926728354238"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000006": {
+    "id": "67d716557e2937472c000006",
+    "name": "weapon_kbp_9a91_9x39_mod",
+    "shortName": "9A-91 (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "9A91_indoor_close_loop": {
+          "PathID": "-2284391732252911052"
+        },
+        "9A91_indoor_silenced_close_loop": {
+          "PathID": "-5283343598198679075"
+        },
+        "9A91_outdoor_close_loop": {
+          "PathID": "582979551679638214"
+        },
+        "9A91_outdoor_silenced_close_loop": {
+          "PathID": "-1769872424774390451"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000007": {
+    "id": "67d716557e2937472c000007",
+    "name": "weapon_tochmash_val_9x39_mod",
+    "shortName": "AS VAL (clone)",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vss_loop_indoor_close": {
+          "PathID": "-2533142957301807354"
+        },
+        "vss_loop_close": {
+          "PathID": "-4536540813710592312"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000008": {
+    "id": "67d716557e2937472c000008",
+    "name": "weapon_tochmash_sr3m_9x39_mod",
+    "shortName": "SR-3M (clone)",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "sr3m_indoor_close_loop": {
+          "PathID": "-5128986772447010581"
+        },
+        "sr3m_indoor_silenced_close_loop": {
+          "PathID": "6494225972768189659"
+        },
+        "sr3m_outdoor_close_loop": {
+          "PathID": "8938689719885183041"
+        },
+        "sr3m_outdoor_silenced_close_loop": {
+          "PathID": "-6170814883514272535"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000009": {
+    "id": "67d716557e2937472c000009",
+    "name": "weapon_kbp_vsk94_9x39_mod",
+    "shortName": "VSK-94 (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "9A91_indoor_close_loop": {
+          "PathID": "-2284391732252911052"
+        },
+        "9A91_indoor_silenced_close_loop": {
+          "PathID": "-5283343598198679075"
+        },
+        "9A91_outdoor_close_loop": {
+          "PathID": "582979551679638214"
+        },
+        "9A91_outdoor_silenced_close_loop": {
+          "PathID": "-1769872424774390451"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00000a": {
+    "id": "67d716557e2937472c00000a",
+    "name": "weapon_ckib_ash_12_127x55_mod",
+    "shortName": "ASh-12 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ash12_indoor_close_loop": {
+          "PathID": "-3861096414729939822"
+        },
+        "ash12_indoor_close_loop_silenced": {
+          "PathID": "6835886818667432301"
+        },
+        "ash12_outdoor_close_loop": {
+          "PathID": "-5836777987564692940"
+        },
+        "ash12_outdoor_close_loop_silenced": {
+          "PathID": "-2616436702984174522"
+        }
+      }
+    },
+    "mod": true
+  },
+  "67d716557e2937472c00000b": {
+    "id": "67d716557e2937472c00000b",
+    "name": "weapon_molot_akm_vpo_209_366_TKM_mod",
+    "shortName": "VPO-209 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vpo209_fire_close": {
+          "PathID": "-1982207209802398677"
+        },
+        "vpo209_fire_close_silenced": {
+          "PathID": "6370608628865405697"
+        },
+        "vpo209_fire_indoor_close": {
+          "PathID": "-7797057941204705353"
+        },
+        "vpo209_fire_indoor_close_silenced": {
+          "PathID": "-2868660629612472978"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00000c": {
+    "id": "67d716557e2937472c00000c",
+    "name": "weapon_izhmash_aks74_545x39_mod",
+    "shortName": "AKS-74 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00000d": {
+    "id": "67d716557e2937472c00000d",
+    "name": "weapon_izhmash_aks74n_545x39_mod",
+    "shortName": "AKS-74N (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00000e": {
+    "id": "67d716557e2937472c00000e",
+    "name": "weapon_izhmash_aks74u_545x39_mod",
+    "shortName": "AKS-74U (clone)",
+    "fireRate": 850,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksu_close_indoor_loop": {
+          "PathID": "683860518384668037"
+        },
+        "aksu_close_indoor_loop_silenced": {
+          "PathID": "-5501171236208449142"
+        },
+        "aksu_close_loop": {
+          "PathID": "6273979998004980824"
+        },
+        "aksu_close_loop_silenced": {
+          "PathID": "-8714529593898718938"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00000f": {
+    "id": "67d716557e2937472c00000f",
+    "name": "weapon_izhmash_aks74ub_545x39_mod",
+    "shortName": "AKS-74UB (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksu_close_indoor_loop": {
+          "PathID": "683860518384668037"
+        },
+        "aksu_close_indoor_loop_silenced": {
+          "PathID": "-5501171236208449142"
+        },
+        "aksu_close_loop": {
+          "PathID": "6273979998004980824"
+        },
+        "aksu_close_loop_silenced": {
+          "PathID": "-8714529593898718938"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000010": {
+    "id": "67d716557e2937472c000010",
+    "name": "weapon_izhmash_aks74un_545x39_mod",
+    "shortName": "AKS-74UN (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksu_close_indoor_loop": {
+          "PathID": "683860518384668037"
+        },
+        "aksu_close_indoor_loop_silenced": {
+          "PathID": "-5501171236208449142"
+        },
+        "aksu_close_loop": {
+          "PathID": "6273979998004980824"
+        },
+        "aksu_close_loop_silenced": {
+          "PathID": "-8714529593898718938"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000011": {
+    "id": "67d716557e2937472c000011",
+    "name": "weapon_izhmash_ak105_545x39_mod",
+    "shortName": "AK-105 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak105_close_loop": {
+          "PathID": "-3554889328243803226"
+        },
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000012": {
+    "id": "67d716557e2937472c000012",
+    "name": "weapon_izhmash_ak12_545x39_mod",
+    "shortName": "AK-12 (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak12_indoor_close_loop": {
+          "PathID": "-355007057781392776"
+        },
+        "ak12_indoor_silenced_close_loop": {
+          "PathID": "4132997730619520217"
+        },
+        "ak12_outdoor_close_loop": {
+          "PathID": "-2947922506372296084"
+        },
+        "ak12_outdoor_silence_close_loop": {
+          "PathID": "9072438792968918584"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000013": {
+    "id": "67d716557e2937472c000013",
+    "name": "weapon_sag_ak545_545x39_mod",
+    "shortName": "AK-545 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksag_indoor_close": {
+          "PathID": "-5382769002259221985"
+        },
+        "aksag_indoor_silenced_close": {
+          "PathID": "-8377031906836359623"
+        },
+        "aksag_outdoor_close": {
+          "PathID": "1800395862902392113"
+        },
+        "aksag_outdoor_silenced_close": {
+          "PathID": "1061013878031422998"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000014": {
+    "id": "67d716557e2937472c000014",
+    "name": "weapon_sag_ak545_short_545x39_mod",
+    "shortName": "AK-545 Short (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aksag_indoor_close": {
+          "PathID": "-5382769002259221985"
+        },
+        "aksag_indoor_silenced_close": {
+          "PathID": "-8377031906836359623"
+        },
+        "aksag_outdoor_close": {
+          "PathID": "1800395862902392113"
+        },
+        "aksag_outdoor_silenced_close": {
+          "PathID": "1061013878031422998"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000015": {
+    "id": "67d716557e2937472c000015",
+    "name": "weapon_izhmash_ak74_545x39_mod",
+    "shortName": "AK-74 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": true
+  },
+  "67d716557e2937472c000016": {
+    "id": "67d716557e2937472c000016",
+    "name": "weapon_izhmash_ak74m_545x39_mod",
+    "shortName": "AK-74M (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74m_indoor_close_loop": {
+          "PathID": "-3455514383449969602"
+        },
+        "ak74m_indoor_silenced_close_loop": {
+          "PathID": "8388259700852334973"
+        },
+        "ak74m_outdoor_close_loop": {
+          "PathID": "85456129691124582"
+        },
+        "ak74m_outdoor_silenced_close_loop": {
+          "PathID": "-8431062450337570867"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000017": {
+    "id": "67d716557e2937472c000017",
+    "name": "weapon_izhmash_ak74n_545x39_mod",
+    "shortName": "AK-74N (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak74_loop_indoor_close_silenced": {
+          "PathID": "5955292335642162272"
+        },
+        "ak74_loop_indoor_close3": {
+          "PathID": "4454186089043391093"
+        },
+        "ak74_loop_outdoor_close_silenced": {
+          "PathID": "5873248349031220469"
+        },
+        "ak74_outdoor_close_loop": {
+          "PathID": "5806867474115218915"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000018": {
+    "id": "67d716557e2937472c000018",
+    "name": "weapon_adar_2-15_556x45_mod",
+    "shortName": "ADAR 2-15 (clone)",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "adar_fire_indoor_close": {
+          "PathID": "-4493231347863166072"
+        },
+        "adar_fire_indoor_silenced_close": {
+          "PathID": "-4993874235173787765"
+        },
+        "adar_fire_outdoor_close": {
+          "PathID": "6601194011693480276"
+        },
+        "adar_fire_outdoor_silenced_close": {
+          "PathID": "-1463192730250360543"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000019": {
+    "id": "67d716557e2937472c000019",
+    "name": "weapon_izhmash_ak101_556x45_mod",
+    "shortName": "AK-101 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak101_indoor_close_loop": {
+          "PathID": "-4536678112468782156"
+        },
+        "ak101_indoor_silenced_close_loop": {
+          "PathID": "734350649757532518"
+        },
+        "ak101_outdoor_close_loop": {
+          "PathID": "5869753835265602700"
+        },
+        "ak101_outdoor_silenced_close_loop": {
+          "PathID": "8202468827784821393"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00001a": {
+    "id": "67d716557e2937472c00001a",
+    "name": "weapon_izhmash_ak102_556x45_mod",
+    "shortName": "AK-102 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ak102_indoor_close_loop": {
+          "PathID": "3808118659121591639"
+        },
+        "ak102_indoor_silenced_close_loop": {
+          "PathID": "2489841818115563574"
+        },
+        "ak102_outdoor_close_loop": {
+          "PathID": "4956173462097932238"
+        },
+        "ak102_outdoor_silenced_close_loop": {
+          "PathID": "786874207146757796"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00001b": {
+    "id": "67d716557e2937472c00001b",
+    "name": "weapon_steyr_aug_a1_556x45_mod",
+    "shortName": "AUG A1 (clone)",
+    "fireRate": 715,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aug_indoor_close_loop": {
+          "PathID": "-1557371118188782202"
+        },
+        "aug_indoor_close_silenced_loop": {
+          "PathID": "5810084616819048396"
+        },
+        "aug_outdoor_close_loop": {
+          "PathID": "-5829012793079215859"
+        },
+        "aug_outdoor_close_silenced_loop": {
+          "PathID": "-6103487653302314352"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00001c": {
+    "id": "67d716557e2937472c00001c",
+    "name": "weapon_steyr_aug_a3_m1_556x45_mod",
+    "shortName": "AUG A3 (clone)",
+    "fireRate": 715,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aug_indoor_close_loop": {
+          "PathID": "-1557371118188782202"
+        },
+        "aug_indoor_close_silenced_loop": {
+          "PathID": "5810084616819048396"
+        },
+        "aug_outdoor_close_loop": {
+          "PathID": "-5829012793079215859"
+        },
+        "aug_outdoor_close_silenced_loop": {
+          "PathID": "-6103487653302314352"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00001d": {
+    "id": "67d716557e2937472c00001d",
+    "name": "weapon_steyr_aug_a3_m1_556x45_blk_mod",
+    "shortName": "AUG A3 (clone)",
+    "fireRate": 715,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aug_indoor_close_loop": {
+          "PathID": "-1557371118188782202"
+        },
+        "aug_indoor_close_silenced_loop": {
+          "PathID": "5810084616819048396"
+        },
+        "aug_outdoor_close_loop": {
+          "PathID": "-5829012793079215859"
+        },
+        "aug_outdoor_close_silenced_loop": {
+          "PathID": "-6103487653302314352"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00001e": {
+    "id": "67d716557e2937472c00001e",
+    "name": "weapon_hk_g36_556x45_mod",
+    "shortName": "G36 (clone)",
+    "fireRate": 750,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "g36_indoor_close": {
+          "PathID": "-5706887375206528619"
+        },
+        "g36_indoor_silenced_close": {
+          "PathID": "6849548677542283889"
+        },
+        "g36_outdoor_close": {
+          "PathID": "-1080422952425865417"
+        },
+        "g36_outdoor_silenced_close": {
+          "PathID": "-8833947249464896979"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00001f": {
+    "id": "67d716557e2937472c00001f",
+    "name": "weapon_hk_416a5_556x45_mod",
+    "shortName": "HK 416A5 (clone)",
+    "fireRate": 850,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "hk416_indoor_close_loop": {
+          "PathID": "8797488756446692992"
+        },
+        "hk416_indoor_silenced_close_loop": {
+          "PathID": "8086203756777418837"
+        },
+        "hk416_outdoor_close_loop": {
+          "PathID": "-4439201066941128968"
+        },
+        "hk416_outdoor_silenced_close_loop": {
+          "PathID": "3386350814492050671"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000020": {
+    "id": "67d716557e2937472c000020",
+    "name": "weapon_colt_m4a1_556x45_mod",
+    "shortName": "M4A1 (clone)",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m4_fire_indoor_loop2": {
+          "PathID": "-3247868698438782021"
+        },
+        "m4_fire_indoor_one_shot": {
+          "PathID": "613730890145106640"
+        },
+        "m4_fire_outdoor_loop": {
+          "PathID": "5884916497275843946"
+        },
+        "m4_fire_silenced_loop": {
+          "PathID": "3078466324900170382"
+        },
+        "m4_outdoor_one_shot": {
+          "PathID": "-2312123283946690117"
+        },
+        "m4a1_fire_silenced_close_loop": {
+          "PathID": "-2162325824647493770"
+        },
+        "m4a1_silenced_indoor_close_loop": {
+          "PathID": "1914714398680053379"
+        }
+      }
+    },
+    "mod": true
+  },
+  "67d716557e2937472c000021": {
+    "id": "67d716557e2937472c000021",
+    "name": "weapon_dt_mdr_556x45_mod",
+    "shortName": "MDR (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mdr_indoor_close_loop": {
+          "PathID": "4272518022936336735"
+        },
+        "mdr_indoor_silenced_close_loop": {
+          "PathID": "-5128388343993261132"
+        },
+        "mdr_outdoor_close_loop": {
+          "PathID": "5990339270618725333"
+        },
+        "mdr_outdoor_silenced_close_loop": {
+          "PathID": "-9117646524904026268"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000022": {
+    "id": "67d716557e2937472c000022",
+    "name": "weapon_fn_mk16_556x45_mod",
+    "shortName": "Mk 16 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_l_indoor_close": {
+          "PathID": "-7663684123809379214"
+        },
+        "scar_l_indoor_silenced_close": {
+          "PathID": "6925909816986366031"
+        },
+        "scar_l_outdoor_close": {
+          "PathID": "-5929133505367375558"
+        },
+        "scar_l_outdoor_silenced_close": {
+          "PathID": "6736092884329329993"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000023": {
+    "id": "67d716557e2937472c000023",
+    "name": "weapon_fn_mk16_556x45_fde_mod",
+    "shortName": "Mk 16 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_l_indoor_close": {
+          "PathID": "-7663684123809379214"
+        },
+        "scar_l_indoor_silenced_close": {
+          "PathID": "6925909816986366031"
+        },
+        "scar_l_outdoor_close": {
+          "PathID": "-5929133505367375558"
+        },
+        "scar_l_outdoor_silenced_close": {
+          "PathID": "6736092884329329993"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000024": {
+    "id": "67d716557e2937472c000024",
+    "name": "weapon_lone_star_tx15_designated_marksman_556x45_mod",
+    "shortName": "TX-15 DML (clone)",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "tx15_fire_indoor_close": {
+          "PathID": "-2144694374456582284"
+        },
+        "tx15_fire_indoor_silenced_close": {
+          "PathID": "2722581166074314134"
+        },
+        "tx15_fire_outdoor_close": {
+          "PathID": "-1266353300265678837"
+        },
+        "tx15_fire_outdoor_silenced_close": {
+          "PathID": "1625786333055883573"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000025": {
+    "id": "67d716557e2937472c000025",
+    "name": "weapon_sig_mcx_spear_68x51_mod",
+    "shortName": "SPEAR 6.8 (clone)",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mcx_spear_indoor_close_loop": {
+          "PathID": "4980588396569496868"
+        },
+        "mcx_spear_indoor_silenced_close_loop": {
+          "PathID": "-1149696331841621476"
+        },
+        "mcx_spear_outdoor_close_loop": {
+          "PathID": "-4732383430793430655"
+        },
+        "mcx_spear_outdoor_silenced_close_loop": {
+          "PathID": "-5524460746489190959"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000026": {
+    "id": "67d716557e2937472c000026",
+    "name": "weapon_sig_mcx_gen1_762x35_mod",
+    "shortName": "MCX .300 BLK (clone)",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mcx_indoor_close": {
+          "PathID": "2729468533986855424"
+        },
+        "mcx_indoor_silenced_close": {
+          "PathID": "-1745147967591950699"
+        },
+        "mcx_outdoor_close": {
+          "PathID": "6361499275794952281"
+        },
+        "mcx_outdoor_silenced_close": {
+          "PathID": "3962460729230920721"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000027": {
+    "id": "67d716557e2937472c000027",
+    "name": "weapon_aklys_defense_velociraptor_762x35_mod",
+    "shortName": "Velociraptor .300 BLK (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "Velociraptor_indoor_close_loop": {
+          "PathID": "945388671370979094"
+        },
+        "Velociraptor_outdoor_close_loop": {
+          "PathID": "-6559325230143701571"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000028": {
+    "id": "67d716557e2937472c000028",
+    "name": "weapon_izhmash_akm_762x39_mod",
+    "shortName": "AKM (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000029": {
+    "id": "67d716557e2937472c000029",
+    "name": "weapon_izhmash_akmn_762x39_mod",
+    "shortName": "AKMN (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00002a": {
+    "id": "67d716557e2937472c00002a",
+    "name": "weapon_izhmash_akms_762x39_mod",
+    "shortName": "AKMS (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00002b": {
+    "id": "67d716557e2937472c00002b",
+    "name": "weapon_izhmash_akmsn_762x39_mod",
+    "shortName": "AKMSN (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00002c": {
+    "id": "67d716557e2937472c00002c",
+    "name": "weapon_izhmash_ak103_762x39_mod",
+    "shortName": "AK-103 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00002d": {
+    "id": "67d716557e2937472c00002d",
+    "name": "weapon_izhmash_ak104_762x39_mod",
+    "shortName": "AK-104 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00002e": {
+    "id": "67d716557e2937472c00002e",
+    "name": "weapon_cmmg_mk47_762x39_mod",
+    "shortName": "Mk47 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mutant_indoor_close": {
+          "PathID": "1117776859513583572"
+        },
+        "mutant_indoor_silenced_close": {
+          "PathID": "7074031901005818475"
+        },
+        "mutant_outdoor_close": {
+          "PathID": "-3282487880262697465"
+        },
+        "mutant_outdoor_silenced_close": {
+          "PathID": "4631414589018775227"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00002f": {
+    "id": "67d716557e2937472c00002f",
+    "name": "weapon_rifle_dynamics_704_762x39_mod",
+    "shortName": "RD-704 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rd704_indoor_close": {
+          "PathID": "5179679641296489286"
+        },
+        "rd704_indoor_silenced_close": {
+          "PathID": "2293149662358201246"
+        },
+        "rd704_outdoor_close": {
+          "PathID": "-4153996004605734164"
+        },
+        "rd704_outdoor_silenced_close": {
+          "PathID": "-6893556914844413966"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000030": {
+    "id": "67d716557e2937472c000030",
+    "name": "weapon_molot_vepr_km_vpo_136_762x39_mod",
+    "shortName": "VPO-136 Vepr-KM (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "akm_close_indoor_loop": {
+          "PathID": "-2739294461461010428"
+        },
+        "akm_close_indoor_loop_silenced": {
+          "PathID": "-2002981895802069846"
+        },
+        "akm_close_loop": {
+          "PathID": "-7902521502488383014"
+        },
+        "akm_close_loop_silenced": {
+          "PathID": "-5545850799253523153"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000031": {
+    "id": "67d716557e2937472c000031",
+    "name": "weapon_dt_mdr_762x51_mod",
+    "shortName": "MDR (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mdr308_indoor_close_loop": {
+          "PathID": "-8442455429952704563"
+        },
+        "mdr308_indoor_close_silenced_loop": {
+          "PathID": "1411025179378671506"
+        },
+        "mdr308_outdoor_close_loop": {
+          "PathID": "-1152681510818613704"
+        },
+        "mdr308_outdoor_close_silenced_loop": {
+          "PathID": "-6140113337402425784"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000032": {
+    "id": "67d716557e2937472c000032",
+    "name": "weapon_fn_mk17_762x51_mod",
+    "shortName": "Mk 17 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_h_indoor_close": {
+          "PathID": "6334314355034838777"
+        },
+        "scar_h_indoor_silenced_close": {
+          "PathID": "-6359496520727020668"
+        },
+        "scar_h_outdoor_close": {
+          "PathID": "-6406820538480817740"
+        },
+        "scar_h_outdoor_silenced_close": {
+          "PathID": "1095011961334433329"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000033": {
+    "id": "67d716557e2937472c000033",
+    "name": "weapon_fn_mk17_762x51_fde_mod",
+    "shortName": "Mk 17 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_h_indoor_close": {
+          "PathID": "6334314355034838777"
+        },
+        "scar_h_indoor_silenced_close": {
+          "PathID": "-6359496520727020668"
+        },
+        "scar_h_outdoor_close": {
+          "PathID": "-6406820538480817740"
+        },
+        "scar_h_outdoor_silenced_close": {
+          "PathID": "1095011961334433329"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000034": {
+    "id": "67d716557e2937472c000034",
+    "name": "weapon_dsa_sa58_762x51_mod",
+    "shortName": "SA58 (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "fal_indoor_close_loop": {
+          "PathID": "9177197984232781972"
+        },
+        "fal_indoor_close_silenced_loop": {
+          "PathID": "1466253226332829296"
+        },
+        "fal_outdoor_close_loop": {
+          "PathID": "3578637401750738261"
+        },
+        "fal_outdoor_close_silenced_loop": {
+          "PathID": "-3650761314474552472"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000035": {
+    "id": "67d716557e2937472c000035",
+    "name": "weapon_x_products_x17_scar_17_762x51_mod",
+    "shortName": "X-17 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "scar_h_indoor_close": {
+          "PathID": "6334314355034838777"
+        },
+        "scar_h_indoor_silenced_close": {
+          "PathID": "-6359496520727020668"
+        },
+        "scar_h_outdoor_close": {
+          "PathID": "-6406820538480817740"
+        },
+        "scar_h_outdoor_silenced_close": {
+          "PathID": "1095011961334433329"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00003c": {
+    "id": "67d716557e2937472c00003c",
+    "name": "weapon_izhmash_rpk16_545x39_mod",
+    "shortName": "RPK-16 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rpk16_indoor_close_loop": {
+          "PathID": "-8363437432865516128"
+        },
+        "rpk16_indoor_silenced_close_loop": {
+          "PathID": "4594496003933188866"
+        },
+        "rpk16_outdoor_close_loop": {
+          "PathID": "-7669458784997944966"
+        },
+        "rpk16_outdoor_silenced_close_loop": {
+          "PathID": "-2711909126576370142"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00003d": {
+    "id": "67d716557e2937472c00003d",
+    "name": "weapon_zid_rpd_762x39_mod",
+    "shortName": "RPD (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rpd_indoor_close_loop": {
+          "PathID": "5489934583809594402"
+        },
+        "rpd_outdoor_close_loop": {
+          "PathID": "369694416241770916"
+        },
+        "rpd_outdoor_silenced_close_loop": {
+          "PathID": "577227008779150692"
+        },
+        "rpd_indoor_silenced_close_loop": {
+          "PathID": "7563928983643813231"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00003e": {
+    "id": "67d716557e2937472c00003e",
+    "name": "weapon_zid_rpdn_762x39_mod",
+    "shortName": "RPDN (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rpd_indoor_close_loop": {
+          "PathID": "5489934583809594402"
+        },
+        "rpd_outdoor_close_loop": {
+          "PathID": "369694416241770916"
+        },
+        "rpd_outdoor_silenced_close_loop": {
+          "PathID": "577227008779150692"
+        },
+        "rpd_indoor_silenced_close_loop": {
+          "PathID": "7563928983643813231"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00003f": {
+    "id": "67d716557e2937472c00003f",
+    "name": "weapon_usord_m60e6_762x51_mod",
+    "shortName": "M60E6 (clone)",
+    "fireRate": 550,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m60_indoor_close_loop": {
+          "PathID": "-6127504020429042288"
+        },
+        "m60_indoor_silenced_close_loop": {
+          "PathID": "-5735899469389828113"
+        },
+        "m60_outdoor_close_loop": {
+          "PathID": "-329893023454838472"
+        },
+        "m60_outdoor_silenced_close_loop": {
+          "PathID": "-2085911368043372258"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000040": {
+    "id": "67d716557e2937472c000040",
+    "name": "weapon_usord_m60e6_762x51_fde_mod",
+    "shortName": "M60E6 (clone)",
+    "fireRate": 550,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m60_indoor_close_loop": {
+          "PathID": "-6127504020429042288"
+        },
+        "m60_indoor_silenced_close_loop": {
+          "PathID": "-5735899469389828113"
+        },
+        "m60_outdoor_close_loop": {
+          "PathID": "-329893023454838472"
+        },
+        "m60_outdoor_silenced_close_loop": {
+          "PathID": "-2085911368043372258"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000041": {
+    "id": "67d716557e2937472c000041",
+    "name": "weapon_usord_m60e4_762x51_mod",
+    "shortName": "Mk 43 Mod 1 (clone)",
+    "fireRate": 550,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m60_indoor_close_loop": {
+          "PathID": "-6127504020429042288"
+        },
+        "m60_indoor_silenced_close_loop": {
+          "PathID": "-5735899469389828113"
+        },
+        "m60_outdoor_close_loop": {
+          "PathID": "-329893023454838472"
+        },
+        "m60_outdoor_silenced_close_loop": {
+          "PathID": "-2085911368043372258"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000043": {
+    "id": "67d716557e2937472c000043",
+    "name": "weapon_zid_pkp_762x54r_mod",
+    "shortName": "PKP (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "pkm_indoor_close_loop": {
+          "PathID": "6240137707529707382"
+        },
+        "pkm_outdoor_close_loop": {
+          "PathID": "4210236611400103405"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000044": {
+    "id": "67d716557e2937472c000044",
+    "name": "weapon_zid_pktm_762x54r_mod",
+    "shortName": "PKTM (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "pkm_indoor_close_loop": {
+          "PathID": "6240137707529707382"
+        },
+        "pkm_outdoor_close_loop": {
+          "PathID": "4210236611400103405"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000045": {
+    "id": "67d716557e2937472c000045",
+    "name": "weapon_hk_g28_762x51_mod",
+    "shortName": "G28 (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "g28_fire_indoor_close": {
+          "PathID": "-859405093260204524"
+        },
+        "g28_fire_indoor_silenced_close": {
+          "PathID": "6075805264690693956"
+        },
+        "g28_fire_outdoor_close": {
+          "PathID": "6917643008808785523"
+        },
+        "g28_fire_outdoor_silenced_close": {
+          "PathID": "-840231680775817396"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000046": {
+    "id": "67d716557e2937472c000046",
+    "name": "weapon_springfield_m1a_762x51_mod",
+    "shortName": "M1A (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "m1a_fire_close1": {
+          "PathID": "4001882778376623089"
+        },
+        "m1a_fire_indoor_close": {
+          "PathID": "322993173178286352"
+        },
+        "m1a_fire_silenced_close1": {
+          "PathID": "87724137447412596"
+        },
+        "m1a_fire_silenced_indoor_close1": {
+          "PathID": "-1701669379095912245"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000047": {
+    "id": "67d716557e2937472c000047",
+    "name": "weapon_kel_tec_rfb_762x51_mod",
+    "shortName": "RFB (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rfb_fire_close": {
+          "PathID": "-5872583713820789980"
+        },
+        "rfb_fire_indoor_close": {
+          "PathID": "-1374303296710109189"
+        },
+        "rfb_fire_indoor_silenced_close": {
+          "PathID": "-6408959824771275850"
+        },
+        "rfb_fire_silenced_close": {
+          "PathID": "-5108423174048777089"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000048": {
+    "id": "67d716557e2937472c000048",
+    "name": "weapon_remington_r11_rsass_762x51_mod",
+    "shortName": "RSASS (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "rsass_close_silenced1": {
+          "PathID": "948917592274674329"
+        },
+        "rsass_fire_close5": {
+          "PathID": "8977049043381327118"
+        },
+        "rsass_fire_indoor_close": {
+          "PathID": "-3345139455451341462"
+        },
+        "rsass_indoor_close_silenced1": {
+          "PathID": "4976548528938732531"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000049": {
+    "id": "67d716557e2937472c000049",
+    "name": "weapon_kac_sr25_762x51_mod",
+    "shortName": "SR-25 (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "sr25_fire_indoor_close": {
+          "PathID": "-6225726425947623877"
+        },
+        "sr25_fire_indoor_silenced_close": {
+          "PathID": "-7726302493974801495"
+        },
+        "sr25_fire_outdoor_close": {
+          "PathID": "-2870025746948453934"
+        },
+        "sr25_fire_outdoor_silenced_close": {
+          "PathID": "4233168133238389310"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00004a": {
+    "id": "67d716557e2937472c00004a",
+    "name": "weapon_izhmash_svd_s_762x54_mod",
+    "shortName": "SVDS (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "svd_fire_close": {
+          "PathID": "7757872161692781506"
+        },
+        "svd_fire_close_silenced": {
+          "PathID": "-664841478932331833"
+        },
+        "svd_fire_indoor_close": {
+          "PathID": "-5073579670459727961"
+        },
+        "svd_fire_indoor_silenced_close": {
+          "PathID": "-6419197763589713957"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00004c": {
+    "id": "67d716557e2937472c00004c",
+    "name": "weapon_tochmash_vss_9x39_mod",
+    "shortName": "VSS Vintorez (clone)",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vss_loop_close": {
+          "PathID": "-4536540813710592312"
+        },
+        "vss_loop_indoor_close": {
+          "PathID": "-2533142957301807354"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00005a": {
+    "id": "67d716557e2937472c00005a",
+    "name": "weapon_molot_aps_9x18pm_mod",
+    "shortName": "APS (clone)",
+    "fireRate": 750,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aps_indoor_close_loop": {
+          "PathID": "-7143198952497608628"
+        },
+        "aps_indoor_silenced_close_loop": {
+          "PathID": "-8212711999644829243"
+        },
+        "aps_outdoor_close_loop": {
+          "PathID": "3521792743234881488"
+        },
+        "aps_outdoor_silenced_close_loop": {
+          "PathID": "3433513666625612856"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00006d": {
+    "id": "67d716557e2937472c00006d",
+    "name": "weapon_mps_aa_12_gen_1_12g_mod",
+    "shortName": "AA-12 Gen 1 (clone)",
+    "fireRate": 330,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aa12_indoor_close_loop": {
+          "PathID": "-2382250443220992574"
+        },
+        "aa12_outdoor_close_loop": {
+          "PathID": "216935825518268272"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00006e": {
+    "id": "67d716557e2937472c00006e",
+    "name": "weapon_mps_aa_12_gen_2_12g_mod",
+    "shortName": "AA-12 Gen 2 (clone)",
+    "fireRate": 330,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "aa12_indoor_close_loop": {
+          "PathID": "-2382250443220992574"
+        },
+        "aa12_outdoor_close_loop": {
+          "PathID": "216935825518268272"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000075": {
+    "id": "67d716557e2937472c000075",
+    "name": "weapon_izhmash_saiga12k_10_12g_mod",
+    "shortName": "Saiga-12K FA (clone)",
+    "fireRate": 450,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "saiga12fa_indoor_close_loop": {
+          "PathID": "-5241486878944820211"
+        },
+        "saiga12fa_indoor_close_silenced_loop": {
+          "PathID": "-1110732529293461165"
+        },
+        "saiga12fa_outdoor_close_loop": {
+          "PathID": "-5861728311255933965"
+        },
+        "saiga12fa_outdoor_close_silenced_loop": {
+          "PathID": "5560489376220671471"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000076": {
+    "id": "67d716557e2937472c000076",
+    "name": "weapon_kiba_saiga12k_fa_12g_mod",
+    "shortName": "Saiga-12K FA (clone)",
+    "fireRate": 450,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "saiga12fa_indoor_close_loop": {
+          "PathID": "-5241486878944820211"
+        },
+        "saiga12fa_indoor_close_silenced_loop": {
+          "PathID": "-1110732529293461165"
+        },
+        "saiga12fa_outdoor_close_loop": {
+          "PathID": "-5861728311255933965"
+        },
+        "saiga12fa_outdoor_close_silenced_loop": {
+          "PathID": "5560489376220671471"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00007b": {
+    "id": "67d716557e2937472c00007b",
+    "name": "weapon_hk_ump_1143x23_mod",
+    "shortName": "UMP 45 (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ump_indoor_close": {
+          "PathID": "2846060965844500559"
+        },
+        "ump_indoor_silenced_close": {
+          "PathID": "-3606459062753931142"
+        },
+        "ump_outdoor_close": {
+          "PathID": "-7176859544259396146"
+        },
+        "ump_outdoor_silenced_close": {
+          "PathID": "-5624024326553489359"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00007c": {
+    "id": "67d716557e2937472c00007c",
+    "name": "weapon_tdi_kriss_vector_gen_2_1143x23_mod",
+    "shortName": "Vector .45ACP (clone)",
+    "fireRate": 1100,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vector_45_close": {
+          "PathID": "-1422027251562597125"
+        },
+        "vector_45_indoor_close": {
+          "PathID": "-6414313950266087376"
+        },
+        "vector_45_indoor_silenced_close": {
+          "PathID": "6267953415303256920"
+        },
+        "vector_45_silenced_close": {
+          "PathID": "-7443768023548286841"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00007d": {
+    "id": "67d716557e2937472c00007d",
+    "name": "weapon_hk_mp7a1_46x30_mod",
+    "shortName": "MP7A1 (clone)",
+    "fireRate": 950,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp7_indoor_close_loop": {
+          "PathID": "-8058475052289554865"
+        },
+        "mp7_indoor_silenced_close_loop": {
+          "PathID": "-1971183825184921611"
+        },
+        "mp7_outdoor_close_loop": {
+          "PathID": "-1680573972447604330"
+        },
+        "mp7_outdoor_silenced_close_loop": {
+          "PathID": "424371089203433704"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00007e": {
+    "id": "67d716557e2937472c00007e",
+    "name": "weapon_hk_mp7a2_46x30_mod",
+    "shortName": "MP7A2 (clone)",
+    "fireRate": 950,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp7_indoor_close_loop": {
+          "PathID": "-8058475052289554865"
+        },
+        "mp7_indoor_silenced_close_loop": {
+          "PathID": "-1971183825184921611"
+        },
+        "mp7_outdoor_close_loop": {
+          "PathID": "-1680573972447604330"
+        },
+        "mp7_outdoor_silenced_close_loop": {
+          "PathID": "424371089203433704"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00007f": {
+    "id": "67d716557e2937472c00007f",
+    "name": "weapon_fn_p90_57x28_mod",
+    "shortName": "P90 (clone)",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "p90_indoor_close_loop": {
+          "PathID": "126568195164677995"
+        },
+        "p90_indoor_close_loop_silenced": {
+          "PathID": "3073908896014806360"
+        },
+        "p90_outdoor_close_loop": {
+          "PathID": "7878965381690685266"
+        },
+        "p90_outdoor_close_loop_silenced": {
+          "PathID": "-2841858669419009988"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000080": {
+    "id": "67d716557e2937472c000080",
+    "name": "weapon_zis_ppsh41_762x25_mod",
+    "shortName": "PPSh41 (clone)",
+    "fireRate": 1000,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "ppsh_indoor_close_loop": {
+          "PathID": "-8549851960204794782"
+        },
+        "ppsh_outdoor_close_loop": {
+          "PathID": "-6747161504324869413"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000081": {
+    "id": "67d716557e2937472c000081",
+    "name": "weapon_zmz_pp-9_9x18pmm_mod",
+    "shortName": "PP-9 Klin (clone)",
+    "fireRate": 1000,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "kedr_loop_close": {
+          "PathID": "4952411200996517421"
+        },
+        "kedr_loop_indoor_close": {
+          "PathID": "-6172839554145328924"
+        },
+        "kedr_loop_silenced_close": {
+          "PathID": "-9122518689908063703"
+        },
+        "kedr_loop_silenced_indoor_close": {
+          "PathID": "-5648181312215455899"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000082": {
+    "id": "67d716557e2937472c000082",
+    "name": "weapon_zmz_pp-91-01_9x18pm_mod",
+    "shortName": "PP-91-01 Kedr-B (clone)",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "kedr_loop_close": {
+          "PathID": "4952411200996517421"
+        },
+        "kedr_loop_indoor_close": {
+          "PathID": "-6172839554145328924"
+        },
+        "kedr_loop_silenced_close": {
+          "PathID": "-9122518689908063703"
+        },
+        "kedr_loop_silenced_indoor_close": {
+          "PathID": "-5648181312215455899"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000083": {
+    "id": "67d716557e2937472c000083",
+    "name": "weapon_zmz_pp-91_9x18pm_mod",
+    "shortName": "PP-91 Kedr (clone)",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "kedr_loop_close": {
+          "PathID": "4952411200996517421"
+        },
+        "kedr_loop_indoor_close": {
+          "PathID": "-6172839554145328924"
+        },
+        "kedr_loop_silenced_close": {
+          "PathID": "-9122518689908063703"
+        },
+        "kedr_loop_silenced_indoor_close": {
+          "PathID": "-5648181312215455899"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000084": {
+    "id": "67d716557e2937472c000084",
+    "name": "weapon_hk_mp5_kurtz_9x19_mod",
+    "shortName": "MP5K-N (clone)",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp5_indoor_close_loop": {
+          "PathID": "-4608599101512519809"
+        },
+        "mp5_outdoor_close_loop": {
+          "PathID": "3023482428719832521"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000085": {
+    "id": "67d716557e2937472c000085",
+    "name": "weapon_hk_mp5_navy3_9x19_mod",
+    "shortName": "MP5 (clone)",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp5_indoor_close_loop": {
+          "PathID": "-4608599101512519809"
+        },
+        "mp5_indoor_close_silenced_loop": {
+          "PathID": "-4711818659825933508"
+        },
+        "mp5_outdoor_close_loop": {
+          "PathID": "3023482428719832521"
+        },
+        "mp5_outdoor_close_silenced_loop": {
+          "PathID": "-384112775238231215"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000086": {
+    "id": "67d716557e2937472c000086",
+    "name": "weapon_bt_mp9_9x19_mod",
+    "shortName": "MP9 (clone)",
+    "fireRate": 900,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp9_indoor_close_loop": {
+          "PathID": "-5127673679953693528"
+        },
+        "mp9_indoor_close_silenced_loop": {
+          "PathID": "2390118225435657208"
+        },
+        "mp9_outdoor_close_loop": {
+          "PathID": "-5022731534220049254"
+        },
+        "mp9_outdoor_close_loop_silenced": {
+          "PathID": "-4843747559887845542"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000087": {
+    "id": "67d716557e2937472c000087",
+    "name": "weapon_bt_mp9n_9x19_mod",
+    "shortName": "MP9-N (clone)",
+    "fireRate": 1100,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mp9n_indoor_close_loop": {
+          "PathID": "-1902480496450247292"
+        },
+        "mp9n_indoor_close_silenced_loop": {
+          "PathID": "5146186563151517290"
+        },
+        "mp9n_outdoor_close_loop": {
+          "PathID": "-2849019119386147500"
+        },
+        "mp9n_outdoor_close_loop_silenced": {
+          "PathID": "893591268903873957"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000088": {
+    "id": "67d716557e2937472c000088",
+    "name": "weapon_sig_mpx_9x19_mod",
+    "shortName": "MPX (clone)",
+    "fireRate": 850,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "mpx_indoor_close_loop": {
+          "PathID": "-7223947466031143044"
+        },
+        "mpx_indoor_close_silenced_loop": {
+          "PathID": "3295504215277962161"
+        },
+        "mpx_outdoor_close_loop": {
+          "PathID": "2609996956559964794"
+        },
+        "mpx_outdoor_close_silenced_loop": {
+          "PathID": "-372600922957637614"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000089": {
+    "id": "67d716557e2937472c000089",
+    "name": "weapon_izhmash_pp-19-01_9x19_mod",
+    "shortName": "PP-19-01 (clone)",
+    "fireRate": 700,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vityaz_indoor_close_loop": {
+          "PathID": "2934543780003311308"
+        },
+        "vityaz_indoor_close_silenced_loop": {
+          "PathID": "-8849400844501803002"
+        },
+        "vityaz_outdoor_close_loop": {
+          "PathID": "1951458528056602905"
+        },
+        "vityaz_outdoor_close_silenced_loop": {
+          "PathID": "-7862759789999457454"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00008a": {
+    "id": "67d716557e2937472c00008a",
+    "name": "weapon_izhmash_saiga_9_9x19_mod",
+    "shortName": "Saiga-9 (clone)",
+    "fireRate": 650,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vityaz_indoor_close_loop": {
+          "PathID": "2934543780003311308"
+        },
+        "vityaz_indoor_close_silenced_loop": {
+          "PathID": "-8849400844501803002"
+        },
+        "vityaz_outdoor_close_loop": {
+          "PathID": "1313842937223233044"
+        },
+        "vityaz_outdoor_close_silenced_loop": {
+          "PathID": "-7862759789999457454"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00008b": {
+    "id": "67d716557e2937472c00008b",
+    "name": "weapon_stmarms_stm_9_9x19_mod",
+    "shortName": "STM-9 (clone)",
+    "fireRate": 800,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "stm9_fire_indoor_close": {
+          "PathID": "-5046813033040904391"
+        },
+        "stm9_fire_indoor_silenced_close": {
+          "PathID": "400182704750156711"
+        },
+        "stm9_fire_outdoor_close": {
+          "PathID": "-9087513269847321139"
+        },
+        "stm9_fire_outdoor_silenced_close": {
+          "PathID": "8830076691648973028"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00008c": {
+    "id": "67d716557e2937472c00008c",
+    "name": "weapon_iwi_uzi_9x19_mod",
+    "shortName": "UZI (clone)",
+    "fireRate": 600,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "uzi_indoor_close_loop": {
+          "PathID": "-6182969086191587549"
+        },
+        "uzi_indoor_silenced_close_loop": {
+          "PathID": "12745926872230790"
+        },
+        "uzi_outdoor_close_loop": {
+          "PathID": "-6537510971486667816"
+        },
+        "uzi_outdoor_silenced_close_loop": {
+          "PathID": "-7536707726902776499"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00008d": {
+    "id": "67d716557e2937472c00008d",
+    "name": "weapon_iwi_uzi_pro_pistol_9x19_mod",
+    "shortName": "UZI PRO Pistol (clone)",
+    "fireRate": 1075,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "uzip_indoor_close_loop": {
+          "PathID": "-1612421505952380247"
+        },
+        "uzip_indoor_silenced_close_loop": {
+          "PathID": "620682340013754144"
+        },
+        "uzip_outdoor_close_loop": {
+          "PathID": "267194164025842677"
+        },
+        "uzip_outdoor_silenced_close_loop": {
+          "PathID": "-8102793707553965436"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00008e": {
+    "id": "67d716557e2937472c00008e",
+    "name": "weapon_iwi_uzi_pro_smg_9x19_mod",
+    "shortName": "UZI PRO SMG (clone)",
+    "fireRate": 1075,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "uzip_indoor_close_loop": {
+          "PathID": "-1612421505952380247"
+        },
+        "uzip_indoor_silenced_close_loop": {
+          "PathID": "620682340013754144"
+        },
+        "uzip_outdoor_close_loop": {
+          "PathID": "267194164025842677"
+        },
+        "uzip_outdoor_silenced_close_loop": {
+          "PathID": "-8102793707553965436"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c00008f": {
+    "id": "67d716557e2937472c00008f",
+    "name": "weapon_tdi_kriss_vector_gen_2_9x19_mod",
+    "shortName": "Vector 9x19 (clone)",
+    "fireRate": 950,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "vector_9mm_indoor_close": {
+          "PathID": "7136986876349805058"
+        },
+        "vector_9mm_indoor_silenced_close": {
+          "PathID": "-1297744213128800461"
+        },
+        "vector_9mm_outdoor_close": {
+          "PathID": "-618125472852980413"
+        },
+        "vector_9mm_outdoor_silenced_close": {
+          "PathID": "-2340266213532587953"
+        }
+      }
+    },
+    "mod": false
+  },
+  "67d716557e2937472c000090": {
+    "id": "67d716557e2937472c000090",
+    "name": "weapon_tochmash_sr2m_veresk_9x21_mod",
+    "shortName": "SR-2M (clone)",
+    "fireRate": 950,
+    "hasFullAuto": false,
+    "audio": {
+      "clips": {
+        "sr2m_indoor_close_loop": {
+          "PathID": "-3425288369836108022"
+        },
+        "sr2m_indoor_close_loop_silenced": {
+          "PathID": "7401051452344585126"
+        },
+        "sr2m_outdoor_close_loop": {
+          "PathID": "-5053828931164339028"
+        },
+        "sr2m_outdoor_close_loop_silenced": {
+          "PathID": "7114760382689226324"
+        }
+      }
+    },
+    "mod": false
+  }
+}

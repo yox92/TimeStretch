@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <FileVersion>1.0.0.0</FileVersion>
+        <!--    <TargetFramework>net5.0-windows</TargetFramework>-->
+        <TargetFramework>net472</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>TimeStretch</RootNamespace>
+        <AssemblyName>TimeStretch</AssemblyName>
+        <Platforms>AnyCPU</Platforms>
+        <Deterministic>true</Deterministic>
+        <OutputType>Library</OutputType>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <FileAlignment>512</FileAlignment>
+        <WarningLevel>4</WarningLevel>
+        <OutputPath>bin\Debug\</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- Unity + EFT -->
+        <Reference Include="DissonanceVoip">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\DissonanceVoip.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="AudioModule">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ParticleSystemModule">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\UnityEngine.UI.dll</HintPath>
+        </Reference>
+
+        <!-- SPT -->
+        <Reference Include="Comfort">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\Comfort.dll</HintPath>
+        </Reference>
+        <Reference Include="Comfort.Unity">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\Comfort.Unity.dll</HintPath>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\Newtonsoft.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="Sirenix.Serialization">
+            <HintPath>..\..\EscapeFromTarkov_Data\Managed\Sirenix.Serialization.dll</HintPath>
+        </Reference>
+        <Reference Include="spt-common">
+            <HintPath>..\..\BepInEx\plugins\spt\spt-common.dll</HintPath>
+        </Reference>
+        <Reference Include="spt-reflection">
+            <HintPath>..\..\BepInEx\plugins\spt\spt-reflection.dll</HintPath>
+        </Reference>
+        
+        <!-- BepInEx / Harmony -->
+        <Reference Include="BepInEx">
+            <HintPath>..\..\BepInEx\core\BepInEx.dll</HintPath>
+        </Reference>
+        <Reference Include="0Harmony">
+            <HintPath>..\..\BepInEx\core\0Harmony.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="FodyWeavers.xml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+<!--    <ItemGroup>-->
+<!--        <Reference Include="KmyTarkovApi">-->
+<!--            <HintPath>Utils\KmyTarkovApi.dll</HintPath>-->
+<!--            <Private>false</Private>-->
+<!--        </Reference>-->
+<!--        <Reference Include="KmyTarkovReflection">-->
+<!--            <HintPath>Utils\KmyTarkovReflection.dll</HintPath>-->
+<!--            <Private>false</Private>-->
+<!--        </Reference>-->
+<!--        <Reference Include="KmyTarkovUtils">-->
+<!--            <HintPath>Utils\KmyTarkovUtils.dll</HintPath>-->
+<!--            <Private>false</Private>-->
+<!--        </Reference>-->
+<!--    </ItemGroup>-->
+
+    <ItemGroup>
+        <Compile Remove="DevOnly\**\*.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Fody" Version="6.9.2" PrivateAssets="all" />
+        <PackageReference Include="Costura.Fody" Version="5.7.0" PrivateAssets="all" />
+      <PackageReference Include="AssetsTools.NET" Version="3.0.0" />
+      <PackageReference Include="SoundTouch.Net" Version="2.3.2" />
+      <PackageReference Include="System.Memory" Version="4.6.3" />
+    </ItemGroup> 
+    
+    <ItemGroup>
+      <Folder Include="RunTime\" />
+      <Folder Include="Service\" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+    
+    <Target Name="PostBuild" AfterTargets="Build">
+        <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll"
+              DestinationFolder="..\..\BepInEx\plugins\TimeStretch\"
+              OverwriteReadOnlyFiles="true"
+              SkipUnchangedFiles="false" />
+    </Target>
+    
+</Project>
