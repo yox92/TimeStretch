@@ -2,7 +2,7 @@
 
 ## 🧩 What is this mod?
 
-**TimeStretch** is a mod for **SPT** that dynamically modifies the audio of firearms in-game. It allows fine control over how gun sounds are transformed — including pitch shifting and time-stretching — based on weapon configuration. Adjuste Body Audio Volume all conf F12
+**TimeStretch** is a mod for **SPT** that dynamically modifies the audio of firearms in-game. It allows fine control over how gun sounds are transformed — time-stretching — based on weapon configuration. Adjuste Body Audio Volume all conf F12
 
 This mod is **client-side** and uses **BepInEx** + **Harmony** to hook into Tarkov’s internal audio systems, identify weapons being fired, and replace `AudioClip` objects in memory.
 
