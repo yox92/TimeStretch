@@ -1,53 +1,48 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
-using TimeStretch.Boot;
-using TimeStretch.Entity;
-using TimeStretch.Patches;
-using TimeStretch.Utils;
+using TimeStretch.Cache;
 using UnityEngine;
 
 
-namespace TimeStretch
+namespace TimeStretch.Utils
 {
     [BepInPlugin("com.spt.TimeStretch", "TimeStretch", "1.0.0")]
     public class Plugin : BaseUnityPlugin
     {
+        
         public static ManualLogSource LOGSource;
         public static ConfigEntry<bool> EnableAudioMod;
         public static ConfigEntry<float> TempoMin;
         public static ConfigEntry<float> TempoMax;
-        public static ConfigEntry<int> WalkVolume;
-        public static ConfigEntry<int> TurnVolume;
-        public static ConfigEntry<int> GearVolume;
-        public static ConfigEntry<int> StopVolume;
-        public static ConfigEntry<int> SprintVolume;
-        public static ConfigEntry<int> JumpVolume;
         public static volatile bool ShouldStopThreads = false;
+        
+        // [DllImport("TimeStretchNative.dll")]
+        // public static extern void TimeStretchCpp();
         
         public static Harmony HarmonyInstance { get; private set; }
         private void Awake()
         {
-           
-            Console.Title = "BatchLogger Console";
+            // TimeStretchCpp(); //
+            // BatchLogger.Log("🟢 C++ natif chargé");
             LOGSource = Logger;
             EnableAudioMod = Config.Bind(
                 "Mod TimeStretch",
-                "Activer le mod audio",
+                "Enable audio mod",
                 true,
-                "Active ou désactive les remplacements de sons des armes (via Hook Harmony)"
+                "Enables or disables weapon sound replacements"
             );
+
             EnableAudioMod.SettingChanged += (_, _) =>
             {
                 ShouldStopThreads = !EnableAudioMod.Value;
 
                 if (ShouldStopThreads)
                 {
-                    LOGSource.LogWarning("🛑 Le mod TimeStretch disable.");
-                    BatchLogger.Log("[Plugin] 🛑 Le mod TimeStretch disable.");
+                    LOGSource.LogWarning("🛑 mod TimeStretch disable.");
+                    BatchLogger.Log("[Plugin] 🛑 mod TimeStretch disable.");
                     CacheObject.ClearAllCache();
                 }
                 else
@@ -76,43 +71,7 @@ namespace TimeStretch
             );
             TempoMin.SettingChanged += (_, _) => OnTempoChanged();
             TempoMax.SettingChanged += (_, _) => OnTempoChanged();
-            WalkVolume = Config.Bind(
-                "Body Audio",
-                "Walk",
-                100,
-                new ConfigDescription("", new AcceptableValueRange<int>(1, 100))
-            );
-            TurnVolume = Config.Bind(
-                "Body Audio",
-                "Turn",
-                100,
-                new ConfigDescription("", new AcceptableValueRange<int>(1, 100))
-            );
-            GearVolume = Config.Bind(
-                "Body Audio",
-                "Gear",
-                100,
-                new ConfigDescription("", new AcceptableValueRange<int>(1, 100))
-            );
-            StopVolume = Config.Bind(
-                "Body Audio",
-                "Stop",
-                100,
-                new ConfigDescription("", new AcceptableValueRange<int>(1, 100))
-            );
-            SprintVolume = Config.Bind(
-                "Body Audio",
-                "Sprint",
-                100,
-                new ConfigDescription("", new AcceptableValueRange<int>(1, 100))
-            );
-            JumpVolume = Config.Bind(
-                "Body Audio",
-                "Jump",
-                100,
-                new ConfigDescription("", new AcceptableValueRange<int>(1, 100))
-            );
-         
+            
             if (!File.Exists(PathsFile.DebugPath))
             {
                 File.WriteAllText(PathsFile.DebugPath, "false");
@@ -131,18 +90,15 @@ namespace TimeStretch
             
             HarmonyInstance = new Harmony("com.spt.timestretch");
             HarmonyInstance.PatchAll();
-            
         }
         
-        private void OnTempoChanged()
+        private static void OnTempoChanged()
         {
             LOGSource.LogWarning("🎛️ Tempo modifiy !");
             BatchLogger.Log("[Plugin] 🎛️ Tempo modifiy !");
 
-            // On ne vide pas tout le cache : seulement les clips transformés
             CacheObject.ClearAllCache();
     
-            // Et on relance le traitement de l'arme équipée
             if (!ShouldStopThreads)
             {
                 CacheObject.ResetWeaponTracking();

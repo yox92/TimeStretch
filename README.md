@@ -1,18 +1,14 @@
-# 🔊 TimeStretch Mod — Audio Transformer for SPT
+# 🔊 TimeStretch Audio fire rate mod for SPT
 
 ## 🧩 What is this mod?
 
-**TimeStretch** is a mod for **SPT** that dynamically modifies the audio of firearms in-game. It allows fine control over how gun sounds are transformed — time-stretching — based on weapon configuration. Adjuste Body Audio Volume all conf F12
+**TimeStretch** is a mod for **SPT** that dynamically modifies the audio of firearms in-game. It allows fine control over how gun sounds are transformed time-stretching — based on weapon fire rate.
 
 This mod is **client-side** and uses **BepInEx** + **Harmony** to hook into Tarkov’s internal audio systems, identify weapons being fired, and replace `AudioClip` objects in memory.
 
----
-## 🛑 Need !!!
-- this mod work with bundle update. Execute **ChangeMetaDataBundle.exe**  ``BepInEx\config\BundleUpdate`` Selection 'Y'
----
----
+
 ## 📚 Log IF ONLY NEED 📚
--  **debug.cfg** - **batch_log.txt**  ==> ``BepInEx\plugins\TimeStretch`` true = debug mod on
+-  **debug.cfg** - **TimeStretch_log.txt**  ==> ``BepInEx\plugins\TimeStretch`` true = debug mod on
 ---
 ## 🎯 Key Features
 
@@ -56,18 +52,6 @@ During gameplay:
 - If the player is local and a weapon is firing:
     - The mod checks if a transformed clip is available for replacement
     - If found, it replaces the original with the modified version
-  
-### 5. **PatchBodySoundVolume**
-
-This patch dynamically adjusts the **volume of body-related sounds** (footsteps, gear, jumps, etc.) **only for the local player**, based on the clip prefix and user-configured volume sliders.
-
-It works by:
-- Detecting when body sounds are played (`walk_`, `gear_`, etc.)
-- Capturing clip names during `PickClipsByDistance`
-- Applying custom volume via `BetterSource.BaseVolume` during `SoundBank.Play`
-- Ensuring modifications are only applied once per `BetterSource` instance
-
-This patch has **no impact on weapon sounds**, and only filters "movement/gear" sounds for immersive tuning.
 
 ---
 ## 🚀 Performance & Thread Model

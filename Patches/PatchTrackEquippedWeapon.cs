@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EFT;
 using EFT.InventoryLogic;
 using HarmonyLib;
 using TimeStretch.AudioClipTools;
-using UnityEngine;
+using TimeStretch.Cache;
 using TimeStretch.Utils;
-using TimeStretch.Entity;
+using UnityEngine;
 
 namespace TimeStretch.Patches
 {

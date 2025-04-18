@@ -1,6 +1,6 @@
 ﻿using EFT;
 using HarmonyLib;
-using TimeStretch.Entity;
+using TimeStretch.Cache;
 
 namespace TimeStretch.Boot
 {

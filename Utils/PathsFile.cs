@@ -37,7 +37,7 @@ namespace TimeStretch.Utils
             "assets", "content", "weapons");
 
         public static readonly string LogFilePath = Path.Combine(
-            BepInEx.Paths.PluginPath, "TimeStretch", "batch_log.txt");
+            BepInEx.Paths.PluginPath, "TimeStretch", "TimeStretch_log.txt");
 
         public static readonly string DebugPath = Path.Combine(
             BepInEx.Paths.PluginPath, "TimeStretch", "debug.cfg");

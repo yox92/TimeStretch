@@ -6,7 +6,7 @@ using EFT;
 using TimeStretch.Utils;
 using UnityEngine;
 
-namespace TimeStretch.Entity
+namespace TimeStretch.Cache
 {
     /// Manages the global cache of objects used by the mod (AudioClips, Weapons, etc.).
     public static class CacheObject

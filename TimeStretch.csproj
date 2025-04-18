@@ -104,11 +104,6 @@
       <PackageReference Include="AssetsTools.NET" Version="3.0.0" />
       <PackageReference Include="SoundTouch.Net" Version="2.3.2" />
       <PackageReference Include="System.Memory" Version="4.6.3" />
-    </ItemGroup> 
-    
-    <ItemGroup>
-      <Folder Include="RunTime\" />
-      <Folder Include="Service\" />
     </ItemGroup>
 
     <PropertyGroup>

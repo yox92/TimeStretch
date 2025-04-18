@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using TimeStretch.Entity;
+using TimeStretch.Cache;
 using UnityEngine;
 
 namespace TimeStretch.Utils

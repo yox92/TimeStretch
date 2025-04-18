@@ -1,7 +1,6 @@
-﻿using EFT;
-using EFT.InventoryLogic;
+﻿using EFT.InventoryLogic;
 using HarmonyLib;
-using TimeStretch.Entity;
+using TimeStretch.Cache;
 using TimeStretch.Utils;
 
 namespace TimeStretch.Boot;

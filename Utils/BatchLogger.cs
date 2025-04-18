@@ -19,8 +19,8 @@ namespace TimeStretch.Utils
     {
         private static EnumLoggerMode _mode = EnumLoggerMode.DirectWrite;
         private static readonly object WriteLock = new();
-        private static string _logFilePath = PathsFile.LogFilePath;
-        private static readonly List<string> PackedLogs = new();
+        private static readonly string LOGFilePath = PathsFile.LogFilePath;
+        private static readonly List<string> PackedLogs = [];
         private static bool _autoFlushEnabled = false;
         private static readonly Dictionary<string, (string Block, int Count)> DeduplicationMap = new();
         private static bool _stopFlush = false;
@@ -55,12 +55,12 @@ namespace TimeStretch.Utils
 
             lock (WriteLock)
             {
-                File.WriteAllText(PathsFile.LogFilePath, ""); // vide le fichier
+                File.WriteAllText(PathsFile.LogFilePath, "");
             }
 
             if (_mode == EnumLoggerMode.MemoryBuffer)
             {
-                StartAutoFlush(); // flush toutes les 10 secondes
+                StartAutoFlush(); 
             }
         }
 
@@ -95,7 +95,7 @@ namespace TimeStretch.Utils
 
             lock (WriteLock)
             {
-                File.AppendAllText(_logFilePath, line + Environment.NewLine);
+                File.AppendAllText(LOGFilePath, line + Environment.NewLine);
             }
         }
 
@@ -108,7 +108,7 @@ namespace TimeStretch.Utils
 
             lock (WriteLock)
             {
-                File.AppendAllLines(_logFilePath, finalLines);
+                File.AppendAllLines(LOGFilePath, finalLines);
             }
         }
 
@@ -167,7 +167,7 @@ namespace TimeStretch.Utils
                 }
                 else
                 {
-                    File.AppendAllText(_logFilePath, blockString);
+                    File.AppendAllText(LOGFilePath, blockString);
                 }
             }
         }
@@ -180,7 +180,7 @@ namespace TimeStretch.Utils
             {
                 if (PackedLogs.Count == 0) return;
 
-                File.AppendAllText(_logFilePath, string.Join(Environment.NewLine, PackedLogs));
+                File.AppendAllText(LOGFilePath, string.Join(Environment.NewLine, PackedLogs));
                 PackedLogs.Clear();
             }
         }
@@ -203,7 +203,7 @@ namespace TimeStretch.Utils
                 {
                     if (_mode == EnumLoggerMode.MemoryBuffer && PackedLogs.Count > 0)
                     {
-                        File.AppendAllText(_logFilePath, string.Join(Environment.NewLine, PackedLogs));
+                        File.AppendAllText(LOGFilePath, string.Join(Environment.NewLine, PackedLogs));
                         PackedLogs.Clear();
                     }
 
@@ -227,7 +227,7 @@ namespace TimeStretch.Utils
                     if (count > 1)
                     {
                         var insertPos = block.LastIndexOf("🔊🔴", StringComparison.Ordinal);
-                        var mergedBlock = block.Insert(insertPos, $"  🔁 Répété {count} fois\n");
+                        var mergedBlock = block.Insert(insertPos, $"  🔁 Repeat {count} count\n");
                         sb.AppendLine(mergedBlock);
                     }
                     else
@@ -236,7 +236,7 @@ namespace TimeStretch.Utils
                     }
                 }
 
-                File.AppendAllText(_logFilePath, sb.ToString());
+                File.AppendAllText(LOGFilePath, sb.ToString());
                 DeduplicationMap.Clear();
             }
         }
@@ -250,7 +250,7 @@ namespace TimeStretch.Utils
         {
             if (!DebugOnly) return;
             FlushPackedLogsToDisk();
-            FlushDeduplicatedLogsToDisk(); // 🔒 sécurité anti-perte
+            FlushDeduplicatedLogsToDisk(); // 🔒 anti-perte
         }
         
     }

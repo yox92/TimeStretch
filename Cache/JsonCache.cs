@@ -4,7 +4,7 @@ using TimeStretch.Entity;
 using TimeStretch.Utils;
 using UnityEngine;
 
-namespace TimeStretch.Entity
+namespace TimeStretch.Cache
 {
     public static class JsonCache
     {
@@ -15,12 +15,12 @@ namespace TimeStretch.Entity
         
         public static void LoadJsonFireRate()
         {
-            BatchLogger.Info("♻ Chargement des FireRate intégrés (Embedded)");
+            BatchLogger.Info("♻ load FireRate Embedded");
 
             _entries = EmbeddedFireRateData.All;
 
-            int totalClips = 0;
-            int totalWeapons = 0;
+            var totalClips = 0;
+            var totalWeapons = 0;
 
             foreach (var entry in _entries.Values)
             {
@@ -30,7 +30,7 @@ namespace TimeStretch.Entity
                     {
                         entry.FireRateMod = moddedRate;
                         entry.Mod = true;
-                        BatchLogger.Log($"🔧 Mod détecté : {entry.ID} | Vanilla = {entry.FireRate}, Mod = {moddedRate}");
+                        BatchLogger.Log($"🔧 Mod detect : {entry.ID} | Vanilla = {entry.FireRate}, Mod = {moddedRate}");
                     }
                     else
                     {
@@ -43,22 +43,21 @@ namespace TimeStretch.Entity
                 }
 
                 // Comptage si l’arme a été modifiée et possède des clips
-                if (entry.Mod && entry.Audio?.Clips != null)
-                {
-                    totalWeapons++;
-                    totalClips += entry.Audio.Clips.Count;
-                }
+                if (!entry.Mod || entry.Audio?.Clips == null) continue;
+                totalWeapons++;
+                totalClips += entry.Audio.Clips.Count;
             }
 
-            BatchLogger.Info("✅ Données FireRate intégrées chargées.");
-            BatchLogger.Info(" 📊 Récapitulatif :");
-            BatchLogger.Info($"   🔫 Armes modifiées : {totalWeapons}");
-            BatchLogger.Info($"   🎧 Clips enregistrés : {totalClips}");
+            BatchLogger.Info("✅ Integrated FireRate data loaded.");
+            BatchLogger.Info(" 📊 Summary:");
+            BatchLogger.Info($"   🔫 Weapons modified: {totalWeapons}");
+            BatchLogger.Info($"   🎧 Clips registered: {totalClips}");
+
 
             _data = _entries;
             
             CacheObject.WeaponFireRates.Clear();
-            BatchLogger.Info("🧹 Cache 'WeaponFireRates' vidé après fusion.");
+            BatchLogger.Info("🧹 Cache 'WeaponFireRates' empty after merge.");
         }
 
         public static bool IsTrackedClip(string clipName)
@@ -73,13 +72,13 @@ namespace TimeStretch.Entity
 
             if (!_entries.TryGetValue(weaponId, out var entry) || entry.Audio?.Clips?.ContainsKey(name) != true)
             {
-                BatchLogger.Info($"⚠ Aucun clip enregistré pour '{clipName}' (baseName: '{name}')");
+                BatchLogger.Info($"⚠ no clip save for '{clipName}' (baseName: '{name}')");
                 return 0f;
             }
 
             if (!entry.Mod || entry.FireRateMod <= 0 || entry.FireRate <= 0)
             {
-                BatchLogger.Warn($"⚠️ Aucun mod actif ou données invalides pour l'arme {weaponId}");
+                BatchLogger.Warn($"⚠️ no mod actif or data invalides for weapons id : {weaponId}");
                 return 0f;
             }
 

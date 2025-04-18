@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using BepInEx.Logging;
 using EFT;
 using HarmonyLib;
 using EFT.InventoryLogic;
-using TimeStretch.Entity;
+using TimeStretch.Cache;
 using TimeStretch.Utils;
 using UnityEngine;
 

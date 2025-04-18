@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace TimeStretch
+namespace TimeStretch.Utils
 {
     public static class AudioClipInspector
     {
@@ -20,11 +20,9 @@ namespace TimeStretch
                 log.Add(header);
                 log.Add($"[AudioClipInspector] 🎧 Clip : {clip.name}, Longueur : {clip.length} sec");
 
-                float[] data = new float[clip.samples * clip.channels];
-                if (!clip.GetData(data, 0))
-                {
-                    log.Add("[AudioClipInspector] ⚠️ Impossible de lire les données PCM (peut-être compressé ou streamé)");
-                }
+                var data = new float[clip.samples * clip.channels];
+
+                clip.GetData(data, 0);
             }
             catch (Exception ex)
             {
