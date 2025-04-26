@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using EFT;
 using EFT.InventoryLogic;
 using HarmonyLib;
+using TimeStretch.Animation;
 using TimeStretch.AudioClipTools;
 using TimeStretch.Cache;
+using TimeStretch.Entity;
 using TimeStretch.Utils;
 using UnityEngine;
 
@@ -68,7 +70,7 @@ namespace TimeStretch.Patches
 
         private static IEnumerator ObserveItemField(Player player)
         {
-            string id = null;
+            string currentWeaponId = null;
             try
             {
                 var attempts = 0;
@@ -80,7 +82,10 @@ namespace TimeStretch.Patches
                 {
                     // 🔐 Security
                     if (!player.HealthController.IsAlive)
+                    {
+                        AnimationOverClock.Stop();
                         yield break;
+                    }
 
                     var hands = player.HandsController;
                     if (hands != null)
@@ -90,50 +95,57 @@ namespace TimeStretch.Patches
 
                         if (item0Field?.GetValue(hands) is Item item and Weapon weapon)
                         {
-                            id = weapon.TemplateId.ToString();
-                            if (id is not { Length: 24 })
+                            currentWeaponId = weapon.TemplateId.ToString();
+                            if (currentWeaponId is not { Length: 24 })
                             {
                                 BatchLogger.Error("⚠️ WeaponId invalide");
                                 yield break;
                             }
+                            CacheObject.SetWeaponIdOnHand(weapon.TemplateId);
 
-                            // 🔐 Nouveau verrou ici
-                            if (!CacheObject.ProcessingWeapons.Add(id))
+                            if (weapon.Template?.bFirerate is > 300 and < 1500)
                             {
-                                BatchLogger.Warn($"🛑 Weapon '{id}' already being processed. Skip coroutine.");
+                                CacheObject.RegisterFireRate(currentWeaponId, weapon.Template.bFirerate);
+                                AnimationOverClock.Initialize();
+                            }
+                            
+                            // 🔐 Nouveau verrou
+                            if (!CacheObject.ProcessingWeapons.Add(currentWeaponId))
+                            {
+                                BatchLogger.Warn($"🛑 Weapon '{currentWeaponId}' already being processed. Skip coroutine.");
                                 yield break;
                             }
 
-                            var alreadyProcessed = CacheObject.ProcessedWeapons.Contains(id);
+                            var alreadyProcessed = CacheObject.ProcessedWeapons.Contains(currentWeaponId);
 
-                            if (id != _lastWeaponId)
+                            if (currentWeaponId != _lastWeaponId)
                             {
-                                _lastWeaponId = id;
+                                _lastWeaponId = currentWeaponId;
                                 BatchLogger.Log(
-                                    $"🧹 [PatchTrackEquippedWeapon] Réinitialisation du cache AudioClip pour l'arme : {id}");
-                                CacheObject.ClearLocalMappingsIfNewWeapon(id);
+                                    $"🧹 [PatchTrackEquippedWeapon] Réinitialisation du cache AudioClip pour l'arme : {currentWeaponId}");
+                                CacheObject.ClearLocalMappingsIfNewWeapon(currentWeaponId);
                             }
 
-                            CacheObject.SetHookPermission(id, JsonCache.TryGetEntry(id, out var entry) && entry.Mod);
+                            CacheObject.SetHookPermission(currentWeaponId, JsonCache.TryGetEntry(currentWeaponId, out var entry) && entry.Mod);
 
-                            if (!CacheObject.IsHookAllowedForWeapon(id))
+                            if (!CacheObject.IsHookAllowedForWeapon(currentWeaponId))
                             {
                                 BatchLogger.Log(
-                                    $"⛔ [PatchTrackEquippedWeapon] Hooks disabled for {id} (mod == false)");
+                                    $"⛔ [PatchTrackEquippedWeapon] Hooks disabled for {currentWeaponId} (mod == false)");
                                 yield break;
                             }
 
                             if (alreadyProcessed)
                                 yield break;
 
-                            BatchLogger.Log($"🧷 [PatchTrackEquippedWeapon] Weapon detected (delayed) : {id} ({weapon.LocalizedName()})");
-                            EnqueueWeapon(id);
+                            BatchLogger.Log($"🧷 [PatchTrackEquippedWeapon] Weapon detected (delayed) : {currentWeaponId} ({weapon.LocalizedName()})");
+                            EnqueueWeapon(currentWeaponId);
                             StartWorkerThreadIfNeeded();
                             yield break;
                         }
                     }
 
-                    float waitTime = elapsed < timeoutPhase1 ? 0.1f : 1f;
+                    var waitTime = elapsed < timeoutPhase1 ? 0.1f : 1f;
                     yield return new WaitForSeconds(waitTime);
                     elapsed += waitTime;
                     attempts++;
@@ -144,8 +156,8 @@ namespace TimeStretch.Patches
             finally
             {
                 CacheObject.ActiveObservers.Remove(player);
-                if (id != null)
-                    CacheObject.ProcessingWeapons.Remove(id);
+                if (currentWeaponId != null)
+                    CacheObject.ProcessingWeapons.Remove(currentWeaponId);
             }
         }
 
@@ -188,17 +200,19 @@ namespace TimeStretch.Patches
             {
                 while (CacheObject.WeaponQueue.TryDequeue(out var weaponId))
                 {
+                    
                     if (!JsonCache.IsInitialized)
                     {
                         BatchLogger.Warn("[PatchTrackEquippedWeapon] ⚠️ FireRateDataStore not ready");
                         continue;
                     }
+                    
 
                     if (!CacheObject.ProcessedWeapons.Add(weaponId)) continue;
 
                     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
                     var log = new List<string>();
-                    var clipsToTransform = AudioClipModifier.GetTransformableClips(weaponId);
+                    var clipsToTransform = AudioClipModifier.GetTransformableClips(weaponId, CallerType.WeaponTrack);
                     if (clipsToTransform.Count == 0)
                     {
                         BatchLogger.Log(
@@ -214,7 +228,7 @@ namespace TimeStretch.Patches
                     foreach (var (clip, tempo) in clipsToTransform)
                     {
                         clipNames.Add(clip.name);
-                        var task = AudioClipModifier.TransformClip(clip, tempo, log, weaponId);
+                        var task = AudioClipModifier.TransformClip(clip, tempo, log, weaponId, CallerType.WeaponTrack);
                         tasks.Add(task);
                     }
 
@@ -224,8 +238,7 @@ namespace TimeStretch.Patches
 
                         if (clipNames.Count > 0)
                         {
-                            log.Add(
-                                $"🧾 Summary: {clipNames.Count} clip(s) transformed for {weaponId} in {stopwatch.ElapsedMilliseconds} ms:");
+                            log.Add($"🧾 Summary: {clipNames.Count} clip(s) transformed for {weaponId} in {stopwatch.ElapsedMilliseconds} ms:");
                             foreach (var name in clipNames)
                                 log.Add($"    🔊 {name}");
                         }

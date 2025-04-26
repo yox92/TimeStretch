@@ -36,20 +36,23 @@ namespace TimeStretch.Patches
                     //🔐 we get weapon on hand ?
                     if (CurrentWeapon == null) return;
 
-                    if (!CacheObject.IsHookAllowedForWeapon(CurrentWeapon.TemplateId))
+                    string weaponId = CurrentWeapon.TemplateId;
+                    
+                    CacheObject.TryGetFireMode(weaponId, out var fireMode);
+                    var isOverClock = fireMode == ((Weapon.EFireMode)0x08).ToString();
+                    var weaponMod = CacheObject.IsHookAllowedForWeapon(CurrentWeapon.TemplateId);
+                    
+                    BatchLogger.Log($" [PatchPickByDistance] testx fire-mod {fireMode}");
+                    if (!isOverClock && !weaponMod)
                     {
-                        if (CacheObject.TryLogOnce($"hook_skip:{CurrentWeapon.TemplateId}"))
-                            BatchLogger.Log(
-                                $"⛔ [PatchPickByDistance] Hook skipped for {CurrentWeapon.TemplateId} (mod == false)");
+                        BatchLogger.Log($"⛔ [PatchPickByDistance] block access isOverClock : {isOverClock}, weaponMod : {weaponMod}");
                         return;
                     }
-
-
-                    string weaponId = CurrentWeapon.TemplateId;
+                    
                     List<string> log = [];
 
-                    clip1 = ReplaceIfTransformed(clip1, weaponId, log);
-                    clip2 = ReplaceIfTransformed(clip2, weaponId, log);
+                    clip1 = ReplaceIfTransformed(clip1, weaponId, log, isOverClock);;
+                    clip2 = ReplaceIfTransformed(clip2, weaponId, log, isOverClock);
 
                     BatchLogger.FlushClipLog(log, weaponId);
                 }
@@ -59,7 +62,11 @@ namespace TimeStretch.Patches
                 }
             }
 
-            private static AudioClip ReplaceIfTransformed(AudioClip original, string weaponId, List<string> log)
+            private static AudioClip ReplaceIfTransformed(
+                AudioClip original,
+                string weaponId,
+                List<string> log,
+                bool isOverClock)
             {
                 if (original == null)
                     return null;
@@ -67,59 +74,137 @@ namespace TimeStretch.Patches
                 var clipName = original.name;
                 var baseName = CacheObject.RemoveSuffix(clipName);
 
-                log.Add($"---------------------------");
+                log.Add("---------------------------");
 
                 if (string.IsNullOrWhiteSpace(weaponId))
                 {
-                    log.Add($"[PatchPickByDistance] ❌ No player or weapon equipped");
+                    log.Add("[PatchPickByDistance] ❌ No player or weapon equipped");
                     return original;
                 }
+                
+                var transformed = ProcessClipTransformation(original, baseName, weaponId, log, isOverClock);
+                if (transformed == null)
+                    return original;
 
-                // cache local (nom → nom) + (nom → AudioClip) Rapide peu couteuse
-                if (CacheObject.TryGetLocalName(baseName, out var transformedName))
+                RegisterTransformedClip(baseName, transformed, log, isOverClock);
+
+                LogClipTransformation(original, transformed, log, clipName, weaponId);
+
+                return transformed;
+            }
+
+            /// <summary>
+            /// Gère la transformation du clip. Vérifie le cache local et récupère les clips transformés.
+            /// </summary>
+            private static AudioClip ProcessClipTransformation(AudioClip original, string baseName, string weaponId, List<string> log, bool isOverClock)
+            {
+                if (TryGetCachedClip(baseName, weaponId, log, isOverClock, out var transformed)) 
+                    return transformed;
+                if (!isOverClock && !IsWeaponTransformable(weaponId, log)) 
+                    return null;
+                if (!ResolveTransformedClip(weaponId, original, log, isOverClock, out transformed))
+                    return null;
+
+                return transformed;
+            }
+
+            /// <summary>
+            /// Vérifie si le clip est déjà en cache local.
+            /// </summary>
+            private static bool TryGetCachedClip(string baseName, string weaponId, List<string> log, bool isOverClock, out AudioClip transformed)
+            {
+                string transformedName;
+                transformed = null;
+
+                if (isOverClock)
                 {
-                    if (CacheObject.TryLogOnce($"seen:{weaponId}:{baseName}"))
+                    if (CacheObject.TryGetLocalNameOverClok(baseName, out transformedName) &&
+                        CacheObject.TryResolveFromNameOverClock(transformedName, out transformed))
                     {
-                        log.Add($"🎧 🔎 [PatchPickByDistance] [CACHE] already fired");
+                        log.Add($"🎧 [FireRateRange] [CACHE] Clip found in cache: {transformedName}");
+                        return true;
                     }
-
-                    if (CacheObject.TryResolveFromName(transformedName, out var transformedClip))
-                    {
-                        return transformedClip;
-                    }
-
-                    log.Add($"❌ [PatchPickByDistance] [CACHE] Clip cached [fast] but not yet visible");
+                    log.Add($"🎧 [FireRateRange][CACHE] Clip not found in cache.");
                 }
                 else
                 {
-                    log.Add($" [PatchPickByDistance][CACHE] Weapon has never fired");
+                    if (CacheObject.TryGetLocalName(baseName, out transformedName) &&
+                        CacheObject.TryResolveFromName(transformedName, out transformed))
+                    {
+                        log.Add($"🎧 [CACHE] Clip found in cache: {transformedName}");
+                        return true;
+                    }
+                    log.Add($"🎧 [CACHE] Clip not found in cache.");
                 }
 
-                // vérifie dans le store si l’arme est modifiable
+                return false;
+            }
+
+            /// <summary>
+            /// Vérifie si l'arme associée est transformable.
+            /// </summary>
+            private static bool IsWeaponTransformable(string weaponId, List<string> log)
+            {
                 if (!JsonCache.TryGetEntry(weaponId, out var entry) || !entry.Mod)
                 {
-                    log.Add($"[PatchPickByDistance] ❌ Arme {weaponId} not marked as modifiable ");
-                    return original;
+                    log.Add($"[PatchPickByDistance] ❌ Weapon {weaponId} is not marked as modifiable");
+                    return false;
                 }
-                
-                
-                
+                return true;
+            }
 
-                // regarde si un clip transformé est dispo
-                if (!CacheObject.TryGetTransformed(weaponId, original, out var transformed))
+            /// <summary>
+            /// Récupère le clip transformé à partir de la source appropriée.
+            /// </summary>
+            private static bool ResolveTransformedClip(string weaponId, AudioClip original, List<string> log, bool isOverClock, out AudioClip transformed)
+            {
+                transformed = null;
+
+                if (isOverClock)
                 {
-                    log.Add($"[TRACK ⏳ Transformed clip not ready for : '{clipName}']");
-                    return original;
+                    if (!CacheObject.TryGetTransformedOverclock(weaponId, original, out transformed))
+                    {
+                        log.Add($"[TRACK ⏳ FireRateRange] Transformed clip not ready for: '{original.name}'");
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (!CacheObject.TryGetTransformed(weaponId, original, out transformed))
+                    {
+                        log.Add($"[TRACK ⏳] Transformed clip not ready for: '{original.name}'");
+                        return false;
+                    }
                 }
 
-                // 🧠 Enregistre le nom transformé pour usage futur (nom → nom)
-                CacheObject.RegisterLocalName(baseName, transformed.name);
+                return true;
+            }
 
-                AudioClipInspector.Inspect(original, "🎧 Original :", log);
-                AudioClipInspector.Inspect(transformed, "🎧 Replacement :", log);
-                log.Add($"🎧 ✅ Replacement : '{clipName}' → '{transformed.name}' Weapon : {weaponId}");
+            /// <summary>
+            /// Enregistre le nom transformé pour un accès futur.
+            /// </summary>
+            private static void RegisterTransformedClip(string baseName, AudioClip transformed, List<string> log, bool isOverClock)
+            {
+                if (isOverClock)
+                {
+                    CacheObject.RegisterLocalNameOverClok(baseName, transformed.name);
+                    log.Add($"🎧 [FireRateRange] Registered transformed clip name: {transformed.name}");
+                }
+                else
+                {
+                    CacheObject.RegisterLocalName(baseName, transformed.name);
+                    log.Add($"🎧 Registered transformed clip name: {transformed.name}");
+                }
+            }
 
-                return transformed;
+            /// <summary>
+            /// Ajoute les informations détaillées des clips au journal.
+            /// </summary>
+            private static void LogClipTransformation(AudioClip original, AudioClip transformed, List<string> log, string clipName, string weaponId)
+            {
+                AudioClipInspector.Inspect(original, "🎧 Original: ", log);
+                AudioClipInspector.Inspect(transformed, "🎧 Replacement: ", log);
+                log.Add($"🎧 ✅ Replacement: '{clipName}' → '{transformed.name}' Weapon: {weaponId}");
             }
         }
     }

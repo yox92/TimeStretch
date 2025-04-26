@@ -1,5 +1,6 @@
 ﻿using EFT;
 using HarmonyLib;
+using TimeStretch.Animation;
 using TimeStretch.Cache;
 
 namespace TimeStretch.Boot
@@ -11,6 +12,7 @@ namespace TimeStretch.Boot
         public static void Postfix()
         {
             CacheObject.ClearAllCache();
+            AnimationOverClock.Stop();
         }
     }
 }

@@ -11,14 +11,14 @@ namespace TimeStretch.Utils
         {
             if (clip == null)
             {
-                log.Add("[AudioClipInspector] 🔍 AudioClip NULL, impossible d'inspecter.");
+                log.Add("[AudioClipInspector] 🔍 AudioClip NULL, unable to inspect.");
                 return;
             }
 
             try
             {
                 log.Add(header);
-                log.Add($"[AudioClipInspector] 🎧 Clip : {clip.name}, Longueur : {clip.length} sec");
+                log.Add($"[AudioClipInspector] 🎧 Clip: {clip.name}, Length: {clip.length} sec");
 
                 var data = new float[clip.samples * clip.channels];
 
@@ -26,7 +26,7 @@ namespace TimeStretch.Utils
             }
             catch (Exception ex)
             {
-                log.Add($"[AudioClipInspector] 🤮 Erreur pendant l'inspection de '{clip.name}' : {ex.Message}");
+                log.Add($"[AudioClipInspector] 🤮 Error while inspecting '{clip.name}': {ex.Message}");
             }
         }
     }

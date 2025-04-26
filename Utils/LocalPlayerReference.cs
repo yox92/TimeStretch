@@ -2,7 +2,7 @@
 
 namespace TimeStretch.Utils;
 
-public class LocalPlayerReference
+public abstract class LocalPlayerReference
 {
     public static bool IsInitialized => Player != null;
 

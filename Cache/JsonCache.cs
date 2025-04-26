@@ -108,6 +108,18 @@ namespace TimeStretch.Cache
         {
             return _entries.TryGetValue(weaponId, out entry);
         }
+        
+        public static int GetOriginalFireRate(string weaponId)
+        {
+            if (_entries.TryGetValue(weaponId, out var entry))
+            {
+                return entry.FireRate;
+            }
+
+            BatchLogger.Info($"⚠ Weapon ID '{weaponId}' not found in entries.");
+            return 0;
+        }
+
 
     }
 }

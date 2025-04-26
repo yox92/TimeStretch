@@ -2,9 +2,19 @@
 
 ## 🧩 What is this mod?
 
-**TimeStretch** is a mod for **SPT** that dynamically modifies the audio of firearms in-game. It allows fine control over how gun sounds are transformed time-stretching — based on weapon fire rate.
+TimeStretch is a client-side mod for Escape From Tarkov - SPT that dynamically transforms firearm sounds based on their fire rate.
 
-This mod is **client-side** and uses **BepInEx** + **Harmony** to hook into Tarkov’s internal audio systems, identify weapons being fired, and replace `AudioClip` objects in memory.
+But TimeStretch goes beyond simple audio transformation:
+
+- It introduces a **new Overclock system**, adding a custom firing mode to your weapons.
+- You can **adjust the fire rate (RPM)** dynamically during gameplay.
+- Weapon sounds are **automatically resynchronized** to match the new cadence.
+
+This mod uses **BepInEx** and **Harmony** to hook into Tarkov's internal audio systems to:
+
+- Identify when your weapon fires
+- Replace in-memory `AudioClip` objects without modifying game files
+- Inject a **native Overclock mode** into automatic weapons
 
 
 ## 📚 Log IF ONLY NEED 📚
@@ -12,26 +22,45 @@ This mod is **client-side** and uses **BepInEx** + **Harmony** to hook into Tark
 ---
 ## 🎯 Key Features
 
-- 🔁 **Dynamic sound transformation** based on weapon ID and clip name.
-- 🎧 **Clip-by-clip replacement** for each weapon using time-stretched audio.
-- ⚙️ Configurable **tempo modifiers** (per clip, per weapon).
-- 🚀 Performance & Thread Model
-- 📦 Auto-hook system only activates on **your player** during firing.
-- 💬 Centralized logging system with per-clip and per-weapon diagnostics.
-- 🔒 Intelligent detection of modded vs vanilla weapons via a JSONEmbedded.
+- 🔥 Overclock system allowing dynamic fire rate adjustment (RPM) during gameplay.
+- 🔁 Dynamic sound transformation based on weapon ID and clip name.
+- 🎧 Clip-by-clip replacement for each weapon using time-stretched audio.
+- ⚙️ Configurable tempo modifiers (per clip, per weapon).
+- 🚀 Optimized performance and threading model to prevent FPS drops.
+- 📦 Auto-hook system that activates only for the local player when firing.
+- 💬 Centralized logging with diagnostics per clip and per weapon.
+- 🔒 Intelligent detection of modded vs vanilla weapons through JSONEmbedded.
 
 ---
+## 🔥 Overclock / Transformation
 
-## ⚙️ How It Works (Simplified Flow)
+### **Dynamic Overclock Mode Handling**
+- A new firing mode "OverClock" (internal ID 8) is injected into weapons supporting full-auto.
+- When switching to Overclock mode, the weapon's fire rate is dynamically updated.
+- If the player increases or decreases the RPM (using key bindings), the fire rate is immediately applied and stored per weapon.
 
-### 1. **Weapon Tracking**
+### **Dynamic Audio Synchronization**
+- After a fire rate change, a delayed audio transformation is started to match the new RPM.
+- Each weapon’s `AudioClip` is stretched or compressed according to the customized tempo based on the Overclock fire rate.
+
+### **HUD and Interface Integration**
+- Displays "OverClock" when in Overclock mode.
+- A notification is shown every time the RPM is increased or decreased, showing the new Overclock value.
+
+### **Clean Reset on Weapon Unequip**
+- When unequipping a weapon :
+  - The Overclock animation system is stopped.
+  - The Fire Mode and AudioClip caches are cleaned.
+  - No residual transformations remain when switching weapons.
+
+### **Weapon Tracking**
 When the local player equips a new weapon, the mod:
 - Hooks `Player.set_HandsController` via `PatchTrackEquippedWeapon`
 - Detects the current weapon’s `TemplateId`
 - Checks if the weapon is marked as "modifiable" (`mod == true` from a JSONEmbedded)
 - If valid, starts a background thread to enqueue the weapon for audio processing
 
-### 2. **Clip Discovery & Transformation**
+### **Clip Discovery & Transformation**
 Once a weapon is enqueued:
 - `AudioClipModifier.GetTransformableClips()` identifies all `AudioClip` objects in memory matching the weapon's known clip names.
 - For each clip:
@@ -40,18 +69,18 @@ Once a weapon is enqueued:
     - Skips clips with 0% change
     - Schedules an async transformation via `AudioClipTransformer.TransformAsync()`
 
-### 3. **Replacement Handling**
+### **Replacement Handling**
 - After transformation:
     - The transformed clip is **cached** and **registered** to replace the original
     - clips are NEVER !!!!!! overwritten in memory
     - replaced virtually by mapping names in a lookup dictionary
 
-### 4. **SoundBank Hook**
+### **SoundBank Hook**
 During gameplay:
-- When a weapon fires, `SoundBank.PickClipsByDistance()` is hooked by `PatchPickByDistance`
 - If the player is local and a weapon is firing:
     - The mod checks if a transformed clip is available for replacement
     - If found, it replaces the original with the modified version
+
 
 ---
 ## 🚀 Performance & Thread Model
@@ -89,41 +118,44 @@ Only **non-blocking**, **CPU-light** operations are allowed on the Unity main th
 ```
 ---
 
+
+
 ### 🧠 Caching System
+Cache System Overview
 
-To avoid redundant processing and ensure real-time responsiveness, several cache layers are implemented:
+1. **Global AudioClip Cache**:
+- Transformed clips stored separately for normal fire and Overclock mode.
+- Local mappings (clip name → transformed name) for fast resolution.
+- Thread-safe dictionaries for all loaded AudioClips.
 
-- **`ConcurrentDictionary<(weaponId, AudioClip), AudioClip>`**  
-  Maps the original clip to its transformed version per weapon.  
-  → Used to determine if a clip has already been processed.
+2. **Weapon Tracking**:
+- Tracks equipped weapons and their fire rates (normal and overclocked).
+- Manages queues of weapons needing audio transformation.
+- Ensures no redundant processing with HashSets (ProcessedWeapons, etc.).
 
-- **`Dictionary<string, string> LocalClipMap`**  
-  Local, one-weapon-at-a-time mapping of `originalName → transformedName`.  
-  → Used at runtime to quickly find transformed versions based on name.
+3. **Overclock Mode Caches**:
+- Dedicated structures for Overclock clip mappings and transformed clips.
+- Fire rate per weapon saved and updated dynamically.
 
-- **`ConcurrentDictionary<string, AudioClip> AllClipsByName`**  
-  Global cache of all `AudioClip` objects loaded in memory, by name.  
-  → Used to resolve AudioClips from names without rescanning Unity memory.
+4. **Hook Permissions**:
+- Per-weapon permission system to enable/disable hooks dynamically.
+- Prevents non-modifiable weapons from being processed.
 
-- **`HashSet<string> ProcessedWeapons`**  
-  Stores already processed weapon IDs to prevent duplicate transformation.
+5. **Logging Control**:
+- Prevents console spam by logging unique keys only once.
 
-- **`ConcurrentQueue<string> WeaponQueue`**  
-  Thread-safe queue of weapons to be transformed by the background worker.
+6. **Cache Reset and Cleanup**:
+- Clear individual caches (clips, mappings, weapons) separately.
+- Full global reset on map unload or mod shutdown (ClearAllCache).
 
-- **`Dictionary<string, bool> HookPermissionByWeaponId`**  
-  Determines which weapons are allowed to receive audio hooks (based on `mod == true` from JSONEmbedded).
-
-- **`HashSet<string> LoggedKeys`**  
-  Used for deduplicating log entries (to avoid flooding the console with repeat logs).
-
-All shared resources are protected by locks or thread-safe collections (`Concurrent*`, `lock(obj)`) where needed.
+7. **Background Coroutine (Optional Debug)**:
+- Monitors live transformed clips in memory if enabled for debugging.
 
 ---
 
 ### 🧹 Reset & Cleanup
 
-On mod reload / change config F12 / session start / session reset, all caches are cleared via:
+On mod reload / change config F12 / session start / session reset / Hand empty hook, all caches are cleared via:
 
 This ensures no leak or stale data carries across sessions.
 

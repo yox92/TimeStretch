@@ -7,12 +7,12 @@ using TimeStretch.Utils;
 
 namespace TimeStretch.Patches;
 
-public class PatchFireBullet
+public abstract class PatchFireBullet
 {
     [HarmonyPatch(typeof(WeaponSoundPlayer), nameof(WeaponSoundPlayer.FireBullet))]
     public static class PatchFireBulletPlayerTracker
     {
-        // Juste On Time 
+        // Just In Time 
         private static readonly FieldInfo BridgeField = typeof(WeaponSoundPlayer)
             .GetField("playersBridge", BindingFlags.NonPublic | BindingFlags.Instance);
 
@@ -33,7 +33,7 @@ public class PatchFireBullet
                     if (PlayerBySoundPlayer.TryGetValue(__instance, out var cachedPlayer))
                     {
                         player = cachedPlayer;
-                        BatchLogger.Log($"📦 [PatchFireBullet] Player trouvé dans le cache: {player.ProfileId}");
+                        BatchLogger.Log($"📦 [PatchFireBullet] Player found in cache: {player.ProfileId}");
                     }
                     else
                     {
@@ -49,11 +49,11 @@ public class PatchFireBullet
                         if (player != null)
                         {
                             PlayerBySoundPlayer[__instance] = player;
-                            BatchLogger.Log($"🧠 [PatchFireBullet] Player récupéré via Bridge : {player.ProfileId}");
+                            BatchLogger.Log($"🧠 [PatchFireBullet] Player retrieved via Bridge: {player.ProfileId}");
                         }
                         else
                         {
-                            BatchLogger.Log("❌ [PatchFireBullet] Aucun player trouvé via Bridge.");
+                            BatchLogger.Log("❌ [PatchFireBullet] No player found via Bridge.");
                         }
                     }
                 }
@@ -61,19 +61,19 @@ public class PatchFireBullet
                 var isLocal = LocalPlayerReference.IsLocalPlayer(player);
                 PatchPickByDistance.IsLocalPlayerSound = isLocal;
                 BatchLogger.Log(
-                    $"🎧 [PatchFireBullet] {(isLocal ? "✅ Joueur local détecté" : "❌ Pas un joueur local")} (player null = {player == null})");
+                    $"🎧 [PatchFireBullet] {(isLocal ? "✅ Local player detected" : "❌ Not a local player")} (player null = {player == null})");
             }
             catch (Exception ex)
             {
                 PatchPickByDistance.IsLocalPlayerSound = false;
-                BatchLogger.Warn($"[PatchFireBullet] Exception dans Prefix: {ex.Message}");
+                BatchLogger.Warn($"[PatchFireBullet] Exception in Prefix: {ex.Message}");
             }
         }
 
         [HarmonyPostfix]
         public static void Postfix()
         {
-            // Après FireBullet => on remet le flag à false
+            // After FireBullet => reset flag to false
             PatchPickByDistance.IsLocalPlayerSound = false;
         }
     }

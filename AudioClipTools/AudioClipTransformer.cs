@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using SoundTouch;
+using TimeStretch.Entity;
 using TimeStretch.Utils;
 using UnityEngine;
 
@@ -10,8 +11,12 @@ namespace TimeStretch.AudioClipTools
 {
     public static class AudioClipTransformer
     {
-        public static async Task<AudioClip> TransformAsync(AudioClip original, float tempoChangePercent,
-            List<string> log, string weaponId)
+        public static async Task<AudioClip> TransformAsync(
+            AudioClip original,
+            float tempoChangePercent,
+            List<string> log,
+            string weaponId,
+            CallerType callerType)
         {
             log.Add(
                 $"[AudioClipTransformer] 🟡 Start transform '{original?.name ?? "null"}' weapon {weaponId}");
@@ -57,22 +62,11 @@ namespace TimeStretch.AudioClipTools
             log.Add($"[AudioClipTransformer] 🔁 SoundTouch treatment (tempo +{tempoChangePercent}%)");
             
             
-            var processedData = await Task.Run(() =>
-            {
-                var processor = new SoundTouchProcessor
-                {
-                    Channels = channels,
-                    SampleRate = sampleRate,
-                    TempoChange = tempoChangePercent,
-                    PitchSemiTones = 0,
-                    RateChange = 0
-                };
-
-                processor.PutSamples(originalData, sampleCount);
-                processor.Flush();
-
-                return CollectAllSamples(processor);
-            });
+            var processedData = await ProcessWithSoundTouchOptimized(
+                originalData,
+                channels,
+                sampleRate,
+                tempoChangePercent);
 
             var newSampleCount = processedData.Length / channels;
 
@@ -89,7 +83,7 @@ namespace TimeStretch.AudioClipTools
                 }
 
                 BatchLogger.Log($"[AudioClipTransformer]🎉 New clip '{newClip.name}' created successfully !");
-                AudioClipModifier.RegisterReplacement(original, newClip, log, weaponId);
+                AudioClipModifier.RegisterReplacement(original, newClip, log, weaponId, callerType);
                 return newClip;
             }
             catch (Exception ex)
@@ -137,45 +131,57 @@ namespace TimeStretch.AudioClipTools
             BatchLogger.Error($"[AudioClipTransformer]⏱️ Timeout while loading clip '{clip.name}' after {timeoutMs}ms — GetData still fails");
             return false;
         }
-        
-        
 
-
-        private static float[] CollectAllSamples(SoundTouchProcessor processor)
+        private static async Task<float[]> ProcessWithSoundTouchOptimized(float[] originalData, int channels, int sampleRate, float tempoChangePercent)
         {
-            const int frameBlockSize = 1024;
-            var maxChannels = processor.Channels;
-            Span<float> buffer = stackalloc float[frameBlockSize * maxChannels];
-
-            List<float[]> chunks = [];
-            var totalSamples = 0;
-
-            while (true)
+            return await Task.Run(() =>
             {
-                var receivedFrames = processor.ReceiveSamples(buffer, frameBlockSize);
-                if (receivedFrames == 0)
-                    break;
+                var processor = new SoundTouchProcessor
+                {
+                    Channels = channels,
+                    SampleRate = sampleRate,
+                    TempoChange = tempoChangePercent,
+                    PitchSemiTones = 0,
+                    RateChange = 0
+                };
 
-                var samples = receivedFrames * maxChannels;
-                var chunk = new float[samples];
+                processor.PutSamples(originalData, originalData.Length / channels);
+                processor.Flush();
 
-                for (var i = 0; i < samples; i++)
-                    chunk[i] = buffer[i];
+                const int frameBlockSize = 2048; 
+                Span<float> tempBuffer = stackalloc float[frameBlockSize * channels];
 
-                chunks.Add(chunk);
-                totalSamples += samples;
-            }
+                
+                var estimatedSamples = (int)(originalData.Length * 1.2f);
+                var finalData = new float[estimatedSamples];
+                var writePos = 0;
 
-            // Fusion en une seule fois
-            var final = new float[totalSamples];
-            var offset = 0;
-            foreach (var chunk in chunks)
-            {
-                Buffer.BlockCopy(chunk, 0, final, offset * sizeof(float), chunk.Length * sizeof(float));
-                offset += chunk.Length;
-            }
+                while (true)
+                {
+                    var receivedFrames = processor.ReceiveSamples(tempBuffer, frameBlockSize);
+                    if (receivedFrames == 0)
+                        break;
 
-            return final;
+                    var samples = receivedFrames * channels;
+                    if (writePos + samples > finalData.Length)
+                    {
+                        // Extension douce si déborde
+                        Array.Resize(ref finalData, finalData.Length + estimatedSamples / 2);
+                    }
+
+                    tempBuffer.Slice(0, samples).CopyTo(finalData.AsSpan(writePos));
+                    writePos += samples;
+                }
+
+                // Trim exact
+                if (writePos != finalData.Length)
+                {
+                    Array.Resize(ref finalData, writePos);
+                }
+
+                return finalData;
+            });
         }
+
     }
 }

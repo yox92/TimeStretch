@@ -8,7 +8,7 @@ using TimeStretch.Utils;
 
 namespace TimeStretch.Patches;
 
-public class PatchFireArmController
+public abstract class PatchFireArmController
 {
     [HarmonyPatch(typeof(Player.FirearmController), "method_59")]
     public static class PatchFirearmControllerMethod59

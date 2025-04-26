@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using EFT;
+using TimeStretch.Entity;
 using TimeStretch.Utils;
 using UnityEngine;
 
@@ -56,18 +57,32 @@ namespace TimeStretch.Cache
         /// Suffix added to the name of a transformed AudioClip.
         /// Example: "ak47_fire" → "ak47_fire_mod"
         private const string Suffix = "_mod";
-
-        /// Thread-safe dictionary mapping original AudioClip → to its transformed version (time-stretched).
-        /// Bound to a weapon with a UNIQUE ID.
+        
+        /// <summary>
+        /// Dictionary storing transformed audio clips for normal weapon firing.
+        /// Key: Tuple of weapon ID and original audio clip.
+        /// Value: Transformed audio clip with modified pitch/duration.
+        /// </summary>
         private static readonly ConcurrentDictionary<(string weaponId, AudioClip), AudioClip> Transformed = new();
 
-        /// Local mapping for the currently equipped weapon: (original name → transformed name).
-        /// Example: "ak47_fire" → "ak47_fire_mod".
-        /// Not thread-safe; should only be used from Unity's main thread.
+        /// <summary>
+        /// Dictionary storing transformed audio clips for overclock weapon firing mode.
+        /// Key: Tuple of weapon ID and original audio clip.
+        /// Value: Transformed audio clip with modified pitch/duration for increased fire rate.
+        /// </summary>
+        private static readonly ConcurrentDictionary<(string weaponId, AudioClip), AudioClip> TransformedOverclock = new();
+        /// Acts as a mapping between original AudioClip names and their transformed counterparts.
+        /// Used to efficiently resolve connections between original and processed clips within the local scope.
         private static readonly Dictionary<string, string> LocalClipMap = new();
+        
+        /// Fast cache Overclock only
+        private static readonly Dictionary<string, string> LocalClipMapOverClok = new();
 
         /// Global thread-safe dictionary mapping clip names to AudioClips in memory.
         private static readonly ConcurrentDictionary<string, AudioClip> AllClipsByName = new();
+
+        /// Global thread-safe dictionary mapping clip names to AudioClips in memory.
+        private static readonly ConcurrentDictionary<string, AudioClip> AllClipsByNameOverClock = new();
 
         /// Dictionary mapping weaponId to a boolean indicating if audio hooks are allowed.
         private static readonly Dictionary<string, bool> HookPermissionByWeaponId = new();
@@ -81,29 +96,79 @@ namespace TimeStretch.Cache
         /// Lock Processing by Weapons
         public static readonly HashSet<string> ProcessingWeapons = new();
 
+
         // =====================================================================
         // WEAPON TRACKING
         // =====================================================================
         /// Thread-safe FIFO queue of weaponIds to process for audio transformation.
         public static readonly ConcurrentQueue<string> WeaponQueue = new();
-
+        
+        public static readonly Queue<string> FireModeWeaponQueue = new();
+        
         /// Set of weaponIds already processed to prevent redundant transformations.
+        /// <summary>
+        /// Armes déjà traitées par l'analyseur audio pour WeaponTrack
+        /// </summary>
         public static readonly HashSet<string> ProcessedWeapons = new();
-
-        /// Set of weaponIds already enqueued in WeaponQueue to avoid duplicates.
+        
+        /// <summary>
+        /// Armes déjà traitées par la transformation audio (utilisé par AnimationOverClock)
+        /// </summary>
+        public static readonly HashSet<string> FireModeProcessedWeapons = new();
+        
+        /// <summary>
+        /// Armes déjà ajoutées à la file d'attente de traitement pour le suivi des armes
+        /// </summary>
         public static readonly HashSet<string> EnqueuedWeapons = new();
-
-        /// Set of Players currently being observed (via coroutine) to avoid duplicates.
+        
+        /// <summary>
+        /// Armes déjà ajoutées à la file d'attente pour transformation audio
+        /// </summary>
+        public static readonly HashSet<string> FireModeEnqueuedWeapons = new();
+        
+        /// <summary>
+        /// Joueurs actuellement suivis (via coroutine) pour éviter les doublons
+        /// </summary>
         public static readonly HashSet<Player> ActiveObservers = new();
-   
-        /// FireRate / IDTemplate scrap at start.
+        
+        /// <summary>
+        /// FireRate / IDTemplate récupérés au démarrage
+        /// </summary>
         public static readonly ConcurrentDictionary<string, float> WeaponFireRates = new();
         
-
-
+        /// <summary>
+        /// Dictionnaire associant un ID d'arme à son mode de tir actuel
+        /// </summary>
+        /// Key: weaponId, Value: fire mode.
+        private static readonly Dictionary<string, string> FireModeWeapons = new();
+        
+        /// <summary>
+        /// Dictionary storing weapon fire rates during Overclock mode.
+        /// Key: weaponId, Value: rounds per minute (RPM) when overclocked
+        /// </summary>
+        private static readonly Dictionary<string, int> FireRateWeapons = new();
+        
+        /// <summary>
+        /// Identifiant de l'arme actuellement équipée par le joueur. 
+        /// Cette valeur est mise à jour à chaque changement d'arme via SetWeaponIdOnHand
+        /// et peut être consultée via GetWeaponIdOnHand.
+        /// </summary>
+        private static string _weaponIdOnHand;
+        
         // =====================================================================
         // INIT & RESET
         // =====================================================================
+        public static string GetWeaponIdOnHand()
+        {
+            return _weaponIdOnHand;
+        }
+
+        public static void SetWeaponIdOnHand(string id)
+        {
+            _weaponIdOnHand = id; 
+            BatchLogger.Info($" WeaponIdOnHand update on cache : {id}");
+        }
+        
         /// Scans all loaded AudioClips in Unity and populates AllClipsByName.
         public static void InitGlobalClipCache()
         {
@@ -121,20 +186,67 @@ namespace TimeStretch.Cache
         }
 
         /// Registers a transformed AudioClip to prevent duplicate processing.
-        public static void Register(string weaponId, AudioClip original, AudioClip transformed)
+        public static void Register(string weaponId, AudioClip original, AudioClip transformed, CallerType callerType)
         {
-            Transformed[(weaponId, original)] = transformed;
-
-            if (transformed != null)
+           
+            if (callerType.Equals(CallerType.WeaponTrack))
             {
+                Transformed[(weaponId, original)] = transformed;
+
+                if (transformed == null) return;
                 AllClipsByName.TryAdd(transformed.name, transformed);
             }
+            // case CallerType.Overclock
+            else
+            {
+                TransformedOverclock[(weaponId, original)] = transformed;
+
+                if (transformed == null) return;
+                AllClipsByNameOverClock.TryAdd(transformed.name, transformed);
+            }
+        }
+        
+        public static void RegisterFireMode(string weaponId, string fireMode)
+        {
+            if (string.IsNullOrEmpty(weaponId))
+                throw new ArgumentException("WeaponId ne peut pas être nul ou vide.", nameof(weaponId));
+
+            lock (FireModeWeapons)
+            {
+                FireModeWeapons[weaponId] = fireMode;
+            }
+            BatchLogger.Info($" Fire Mode mis à jour dans le cache pour l'arme {weaponId} : {fireMode}");
+        }
+
+        /// Définit la cadence de tir pour une arme spécifique.
+        public static void RegisterFireRate(string weaponId, int fireRate)
+        {
+            if (string.IsNullOrEmpty(weaponId))
+                throw new ArgumentException("WeaponId ne peut pas être nul ou vide.", nameof(weaponId));
+        
+            lock (FireRateWeapons)
+            {
+                FireRateWeapons[weaponId] = fireRate;
+            }
+            BatchLogger.Info($" FireRate updated in cache for weapon {weaponId}: {fireRate}");
+        }
+        
+        /// Returns true if the clip has already been transformed.
+        public static bool TryGetTransformed(string weaponId, AudioClip original,
+            out AudioClip transformed)
+        {
+                return Transformed.TryGetValue((weaponId, original), out transformed);
+           
         }
 
         /// Returns true if the clip has already been transformed.
-        public static bool TryGetTransformed(string weaponId, AudioClip original, out AudioClip transformed)
+        public static bool TryGetTransformedOverclock(string weaponId, AudioClip original,
+            out AudioClip transformed)
         {
-            return Transformed.TryGetValue((weaponId, original), out transformed);
+            lock (TransformedOverclock)
+            {
+                return TransformedOverclock.TryGetValue((weaponId, original), out transformed);
+            }
         }
 
         /// Checks if the original AudioClip has a transformed version.
@@ -170,6 +282,13 @@ namespace TimeStretch.Cache
                 LocalClipMap[originalName] = transformedName;
         }
 
+        /// Associates original clip name with transformed name (local cache, single weapon).
+        public static void RegisterLocalNameOverClok(string originalName, string transformedName)
+        {
+            if (!string.IsNullOrWhiteSpace(originalName) && !string.IsNullOrWhiteSpace(transformedName))
+                LocalClipMapOverClok[originalName] = transformedName;
+        }
+
         /// Tries to get the known transformed name from an original name.
         public static bool TryGetLocalName(string originalName, out string transformedName)
         {
@@ -178,12 +297,47 @@ namespace TimeStretch.Cache
             return LocalClipMap.TryGetValue(originalName, out transformedName);
         }
 
+        /// Tries to get the known transformed name from an original name.
+        public static bool TryGetLocalNameOverClok(string originalName, out string transformedName)
+        {
+            transformedName = null;
+            if (string.IsNullOrWhiteSpace(originalName)) return false;
+            return LocalClipMapOverClok.TryGetValue(originalName, out transformedName);
+        }
+
         /// Finds an AudioClip in the global cache based on its name.
         public static bool TryResolveFromName(string name, out AudioClip clip)
         {
             return AllClipsByName.TryGetValue(name, out clip);
         }
 
+        /// Finds an AudioClip in the global cache based on its name.
+        public static bool TryResolveFromNameOverClock(string name, out AudioClip clip)
+        {
+            lock (AllClipsByNameOverClock)
+            {
+                return AllClipsByNameOverClock.TryGetValue(name, out clip);
+            }
+        }
+
+        /// Finds an FireRate in the global cache based on its weaponId.
+        public static bool TryGetFireMode(string weaponId, out string fireMode)
+        {
+            lock (FireModeWeapons)
+            {
+                return FireModeWeapons.TryGetValue(weaponId, out fireMode);
+            }
+        }
+
+        /// Récupère la cadence de tir pour une arme spécifique.
+        public static bool TryGetFireRate(string weaponId, out int fireRate)
+        {
+            lock (FireRateWeapons)
+            {
+                return FireRateWeapons.TryGetValue(weaponId, out fireRate);
+            }
+        }
+        
         /// Returns all currently cached transformed AudioClips.
         public static IEnumerable<AudioClip> GetAllTransformedClips()
         {
@@ -239,16 +393,26 @@ namespace TimeStretch.Cache
         }
 
         /// Completely clears the audio cache:
-        public static void ClearAllAudiClipCache()
+        private static void ClearAllAudiClipCache()
         {
             lock (Transformed)
             {
                 Transformed.Clear();
             }
+            
+            lock (TransformedOverclock)
+            {
+                TransformedOverclock.Clear();
+            }
 
             lock (AllClipsByName)
             {
                 AllClipsByName.Clear();
+            }
+
+            lock (AllClipsByNameOverClock)
+            {
+                AllClipsByNameOverClock.Clear();
             }
 
             lock (HookPermissionByWeaponId)
@@ -261,6 +425,11 @@ namespace TimeStretch.Cache
                 LocalClipMap.Clear();
             }
 
+            lock (LocalClipMapOverClok)
+            {
+                LocalClipMapOverClok.Clear();
+            }
+
             BatchLogger.Log("[CacheObject] 🧹 Global cache cleared (transformed clips, mappings, and permissions).");
         }
 
@@ -269,6 +438,30 @@ namespace TimeStretch.Cache
         {
             ResetWeaponTracking();
             ClearAllAudiClipCache();
+            ClearFireModeCache();
+            ClearAllClipsByNameOverClock();
         }
+
+        public static void ClearAllClipsByNameOverClock()
+        {
+            lock (AllClipsByNameOverClock) AllClipsByNameOverClock.Clear();
+            
+        }
+
+        public static void ClearAllClipsByName()
+        {
+            lock (AllClipsByName) AllClipsByName.Clear();
+            
+        }
+
+        public static void ClearFireModeCache()
+        {
+            lock (FireModeProcessedWeapons) FireModeProcessedWeapons.Clear();
+            lock (FireModeEnqueuedWeapons) FireModeEnqueuedWeapons.Clear();
+            lock (FireModeWeaponQueue)
+            {while (FireModeWeaponQueue.TryDequeue(out _)) { } }
+
+            BatchLogger.Log("[FireMode] 🧹 Cache cleared.");
+        }    
     }
 }

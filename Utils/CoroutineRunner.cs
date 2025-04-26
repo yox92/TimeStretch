@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TimeStretch.Cache;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace TimeStretch.Utils
 {
     public class CoroutineRunner : MonoBehaviour
     {
+        public static event Action OnUpdate;
         private static CoroutineRunner _instance;
 
         public static void Run(IEnumerator routine)
@@ -19,7 +21,33 @@ namespace TimeStretch.Utils
 
             _instance.StartCoroutine(routine);
         }
+        public static void RegisterUpdate(Action action)
+        {
+            if (_instance == null)
+            {
+                var go = new GameObject("TimeStretchCoroutineRunner");
+                GameObject.DontDestroyOnLoad(go);
+                _instance = go.AddComponent<CoroutineRunner>();
+            }
+
+            OnUpdate += action;
+        }
+
+        public static void UnregisterUpdate(Action action)
+        {
+            if (_instance != null)
+            {
+                OnUpdate -= action;
+            }
+        }
+
+        private void Update()
+        {
+            OnUpdate?.Invoke();
+        }
     }
+    
+   
     public class TimeStretchManager : MonoBehaviour
     {
         private static TimeStretchManager _instance;
