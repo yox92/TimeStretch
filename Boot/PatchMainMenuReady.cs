@@ -11,7 +11,7 @@ namespace TimeStretch.Boot
     [HarmonyPatch(typeof(MainMenuControllerClass), nameof(MainMenuControllerClass.Execute))]
     public class PatchMainMenuReady
     {
-        private static readonly ManualLogSource Log = new ManualLogSource("PatchMainMenuReady");
+        private static readonly ManualLogSource Log = new ("PatchMainMenuReady");
 
         static PatchMainMenuReady()
         {
@@ -25,7 +25,14 @@ namespace TimeStretch.Boot
             BatchLogger.Info("✅ [PatchMainMenuReady] Main menu detected — initializing components");
             try
             {
-                JsonCache.LoadJsonFireRate();
+                if (!JsonCache.IsLoaded)
+                {
+                    JsonCache.LoadJsonFireRate();
+                }
+                else
+                {
+                    BatchLogger.Info("✅ [PatchMainMenuReady] JSON already loaded — skip reload.");
+                }
             }
             catch (Exception ex)
             {

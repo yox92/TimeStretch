@@ -156,8 +156,6 @@ namespace TimeStretch
             LOGSource.LogWarning("🎛️ Tempo modifiy !");
             BatchLogger.Log("[Plugin] 🎛️ Tempo modifiy !");
 
-            CacheObject.ClearAllCache();
-
             if (!ShouldStopThreads)
             {
                 CacheObject.ResetWeaponTracking();

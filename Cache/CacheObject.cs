@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using EFT;
 using TimeStretch.Entity;
 using TimeStretch.Utils;
@@ -188,7 +189,6 @@ namespace TimeStretch.Cache
         /// Registers a transformed AudioClip to prevent duplicate processing.
         public static void Register(string weaponId, AudioClip original, AudioClip transformed, CallerType callerType)
         {
-           
             if (callerType.Equals(CallerType.WeaponTrack))
             {
                 Transformed[(weaponId, original)] = transformed;
@@ -227,8 +227,8 @@ namespace TimeStretch.Cache
             lock (FireRateWeapons)
             {
                 FireRateWeapons[weaponId] = fireRate;
+                BatchLogger.Log($"[CacheObject] FireRate cached: {weaponId} -> {fireRate}");
             }
-            BatchLogger.Info($" FireRate updated in cache for weapon {weaponId}: {fireRate}");
         }
         
         /// Returns true if the clip has already been transformed.
@@ -438,6 +438,9 @@ namespace TimeStretch.Cache
         {
             ResetWeaponTracking();
             ClearAllAudiClipCache();
+        }
+        public static void ClearAllCacheOverclock()
+        {
             ClearFireModeCache();
             ClearAllClipsByNameOverClock();
         }
@@ -453,8 +456,13 @@ namespace TimeStretch.Cache
             lock (AllClipsByName) AllClipsByName.Clear();
             
         }
+        public static void ClearAllFireModeCache()
+        {
+            lock (FireModeWeapons) FireModeWeapons.Clear();
+            
+        }
 
-        public static void ClearFireModeCache()
+        private static void ClearFireModeCache()
         {
             lock (FireModeProcessedWeapons) FireModeProcessedWeapons.Clear();
             lock (FireModeEnqueuedWeapons) FireModeEnqueuedWeapons.Clear();
@@ -462,6 +470,90 @@ namespace TimeStretch.Cache
             {while (FireModeWeaponQueue.TryDequeue(out _)) { } }
 
             BatchLogger.Log("[FireMode] 🧹 Cache cleared.");
-        }    
+        } 
+        
+        public static void ClearFireModeCacheForWeapon(string weaponId)
+        {
+            if (string.IsNullOrEmpty(weaponId))
+                return;
+
+            lock (FireModeProcessedWeapons)
+            {
+                FireModeProcessedWeapons.Remove(weaponId);
+            }
+
+            lock (FireModeEnqueuedWeapons)
+            {
+                FireModeEnqueuedWeapons.Remove(weaponId);
+            }
+            lock (FireModeWeaponQueue)
+            {
+                var newQueue = new Queue<string>(FireModeWeaponQueue.Where(w => w != weaponId));
+                FireModeWeaponQueue.Clear();
+                foreach (var w in newQueue)
+                    FireModeWeaponQueue.Enqueue(w);
+            }
+
+            BatchLogger.Log($"[FireMode] 🧹 Cache cleared for weapon: {weaponId}");
+        }
+        
+        
+        /// <summary>
+        /// Clears all overclock-related audio clip caches for a specific weapon.
+        /// </summary>
+        /// <param name="weaponId">The ID of the weapon to clear caches for</param> 
+        public static void ClearOverClockClipCacheForWeapon(string weaponId)
+        {
+            List<string> log = [];
+            
+            if (string.IsNullOrEmpty(weaponId))
+            {
+                log.Add("[CacheObject] ⚠️ Cannot clear cache - weapon ID is null or empty");
+                BatchLogger.Block(log);
+                return;
+            }
+        
+            log.Add($"[CacheObject] 🗑️ Starting cache clear for weapon: {weaponId}");
+            List<string> clipNamesToRemove = [];
+        
+            lock (TransformedOverclock)
+            {
+                var initialCount = TransformedOverclock.Count;
+                foreach (var key in new 
+                             List<(string weaponId, AudioClip)>
+                             (TransformedOverclock.Keys)
+                             .Where(key => key.weaponId == weaponId)
+                         )
+                {
+                    log.Add($"[CacheObject] 🔍 Processing key: {key.weaponId}");
+                    if (!TransformedOverclock.TryRemove(key, out var transformedClip))
+                    {
+                        log.Add($"[CacheObject] ❌ Failed to remove clip for key: {key.weaponId}");
+                        continue; 
+                    }
+                    if (transformedClip)
+                    {
+                        clipNamesToRemove.Add(transformedClip.name);
+                        log.Add($"[CacheObject] ✅ Added clip to removal list: {transformedClip.name}");
+                    }
+                }
+                log.Add($"[CacheObject] 📊 TransformedOverclock entries: {initialCount} -> {TransformedOverclock.Count}");
+            }
+        
+            foreach (var clipName in clipNamesToRemove)
+            {
+                if (AllClipsByNameOverClock.TryRemove(clipName, out _))
+                {
+                    log.Add($"[CacheObject] 🗑️ Removed clip from AllClipsByNameOverClock: {clipName}");
+                }
+                else
+                {
+                    log.Add($"[CacheObject] ❌ Failed to remove clip from AllClipsByNameOverClock: {clipName}");
+                }
+            }
+            log.Add($"[CacheObject] 🎶 Cleared OverClock clips cache for weapon: {weaponId} (and {clipNamesToRemove.Count} clip name(s))");
+            
+            BatchLogger.Block(log);
+        }
     }
 }

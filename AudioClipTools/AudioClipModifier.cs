@@ -30,6 +30,15 @@ namespace TimeStretch.AudioClipTools
             log.Add($"[AudioClipModifier] 🔁 Clip '{original.name}' virtually replaced by '{newClip.name}'.");
         }
 
+        /// <summary>
+        /// Transforms an audio clip by applying a tempo modification asynchronously.
+        /// </summary>
+        /// <param name="clip">The audio clip to transform</param>
+        /// <param name="tempo">The tempo modification percentage to apply</param>
+        /// <param name="log">List to store log messages</param> 
+        /// <param name="weaponId">ID of the associated weapon</param>
+        /// <param name="callerType">Type of caller requesting the transform</param>
+        /// <returns>Task representing the asynchronous transform operation</returns>
         public static Task TransformClip(AudioClip clip, float tempo, List<string> log, string weaponId,
             CallerType callerType)
         {
@@ -53,7 +62,12 @@ namespace TimeStretch.AudioClipTools
                 }
             });
         }
-
+        /// <summary>
+        /// Gets a list of audio clips that can be transformed with their associated tempo modification.
+        /// </summary>
+        /// <param name="weaponId">The ID of the weapon to get clips for</param>
+        /// <param name="callerType">The type of caller requesting the clips</param>
+        /// <returns>A list of tuples containing the audio clip and its calculated tempo modification</returns>
         public static List<(AudioClip clip, float tempo)> GetTransformableClips(string weaponId, CallerType callerType)
         {
             var result = new List<(AudioClip, float)>();
@@ -62,7 +76,7 @@ namespace TimeStretch.AudioClipTools
                 BatchLogger.Log($"[AudioClipModifier]⚠️ No audio clips found for weapon {weaponId} in JSON.");
                 return result;
             }
-            CacheObject.ClearAllClipsByNameOverClock();
+            CacheObject.ClearOverClockClipCacheForWeapon(weaponId);
             CacheObject.ClearAllClipsByName();
 
             var matchingAudioClips = GetMatchingAudioClips(entry.Audio.Clips.Keys);
@@ -106,6 +120,11 @@ namespace TimeStretch.AudioClipTools
             return result;
         }
 
+        /// <summary>
+        /// Finds all AudioClips in memory that match the provided clip names after removing suffixes.
+        /// </summary>
+        /// <param name="clipKeys">Collection of clip names to match against</param>
+        /// <returns>List of matching AudioClips found in memory</returns>
         private static List<AudioClip> GetMatchingAudioClips(IEnumerable<string> clipKeys)
         {
             var clipNames = clipKeys
@@ -144,7 +163,11 @@ namespace TimeStretch.AudioClipTools
             return matchingAudioClips;
         }
 
-
+        /// <summary>
+        /// Coroutine that checks the availability of transformed audio clips in memory.
+        /// </summary>
+        /// <param name="clipNames">List of original clip names to check for their transformed versions</param>
+        /// <returns>IEnumerator for coroutine execution</returns>
         public static IEnumerator OneShotClipAvailability(List<string> clipNames)
         {
             if (Plugin.ShouldStopThreads)
@@ -186,65 +209,3 @@ namespace TimeStretch.AudioClipTools
         }
     }
 }
-
-
-// public static List<(AudioClip clip, float tempo)> GetTransformableClips(string weaponId, CallerType callerType)
-//  {
-//      var result = new List<(AudioClip, float)>();
-//      if (!JsonCache.TryGetEntry(weaponId, out var entry) || entry.Audio?.Clips == null)
-//      {
-//          BatchLogger.Log($"[AudioClipModifier]⚠️ No audio clips found for weapon {weaponId} in JSON.");
-//          return result;
-//      }
-//
-//      var clipNames = entry.Audio.Clips.Keys
-//          .Where(name => !string.IsNullOrWhiteSpace(name))
-//          .Select(CacheObject.RemoveSuffix)
-//          .ToHashSet();
-//
-//      BatchLogger.Log($"🎧 [AudioClipModifier] Analyzing {clipNames.Count} clip name(s) for weapon {weaponId}");
-//
-//      foreach (var clip in Resources.FindObjectsOfTypeAll<AudioClip>())
-//      {
-//          if (clip == null) continue;
-//          if (clip.name.EndsWith("_mod", StringComparison.OrdinalIgnoreCase)) continue;
-//
-//          var baseName = CacheObject.RemoveSuffix(clip.name);
-//          if (!clipNames.Contains(baseName)) continue;
-//
-//          if (CacheObject.TryGetTransformed(weaponId, clip,  out _))
-//          {
-//              BatchLogger.Log($"[AudioClipModifier]🔁 Already transformed: : {clip.name}");
-//              continue;
-//          }
-//
-//          float tempo;
-//          if (callerType.Equals(CallerType.Overclock))
-//          {
-//              tempo = OverClockUtils.CalculateOverClockTempo(weaponId);
-//          }
-//          else
-//          {
-//              tempo = JsonCache.GetTempoModifier(weaponId, baseName);
-//          }
-//
-//          BatchLogger.Log($"tempo calculation: {tempo}%");
-//          var clampedTempo = Mathf.Clamp(tempo, Plugin.TempoMin.Value, Plugin.TempoMax.Value);
-//          BatchLogger.Log($"clampedTempo: {clampedTempo}%");
-//
-//          if (Mathf.Approximately(clampedTempo, 0f))
-//          {
-//              BatchLogger.Log(
-//                  $"[AudioClipModifier]⚠️ Ignored clip (tempo clampé à 0%) : {clip.name} (raw={tempo:+0.0;-0.0}%)");
-//              continue;
-//          }
-//
-//          BatchLogger.Log(
-//              $"[AudioClipModifier]✅ Clips to transform {clip.name} | raw={tempo:+0.0;-0.0}%, clamped={clampedTempo:+0.0;-0.0}%");
-//          result.Add((clip, clampedTempo));
-//      }
-//
-//      BatchLogger.Log($"[AudioClipModifier]🎧 ✅ Transformed clip status {weaponId} : {result.Count}");
-//      return result;
-//  }
-//

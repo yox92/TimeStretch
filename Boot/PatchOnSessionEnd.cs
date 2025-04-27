@@ -12,6 +12,8 @@ namespace TimeStretch.Boot
         public static void Postfix()
         {
             CacheObject.ClearAllCache();
+            CacheObject.ClearAllCacheOverclock();
+            CacheObject.ClearAllFireModeCache();
             AnimationOverClock.Stop();
         }
     }

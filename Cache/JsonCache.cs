@@ -10,6 +10,8 @@ namespace TimeStretch.Cache
     {
         private static Dictionary<string, FireRateEntry> _entries = new();
         private static Dictionary<string, FireRateEntry> _data;
+        private static bool _isJsonLoaded = false;
+        public static bool IsLoaded => _isJsonLoaded;
 
         public static bool IsInitialized => _data != null && _data.Count > 0;
         
@@ -58,6 +60,7 @@ namespace TimeStretch.Cache
             
             CacheObject.WeaponFireRates.Clear();
             BatchLogger.Info("🧹 Cache 'WeaponFireRates' empty after merge.");
+            _isJsonLoaded = true;
         }
 
         public static bool IsTrackedClip(string clipName)
@@ -113,6 +116,20 @@ namespace TimeStretch.Cache
         {
             if (_entries.TryGetValue(weaponId, out var entry))
             {
+                return entry.FireRate;
+            }
+
+            BatchLogger.Info($"⚠ Weapon ID '{weaponId}' not found in entries.");
+            return 0;
+        }
+        
+        public static int GetModOriginalFireRate(string weaponId)
+        {
+            if (_entries.TryGetValue(weaponId, out var entry))
+            {
+                if (entry.FireRateMod > 0)
+                    return (int)entry.FireRateMod;
+
                 return entry.FireRate;
             }
 

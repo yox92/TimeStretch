@@ -42,13 +42,20 @@ namespace TimeStretch.Patches
                 weapon.Template.weapFireType = modes.ToArray();
                 log.Add("⚙️ Overclock mode injected into weaponFireType.");
             }
-        
+            var previousMode = weapon.SelectedFireMode;
+            var newMode = fireMode; 
             var weaponId = weapon.Template._id;
-            var fireRateOriginal = JsonCache.GetOriginalFireRate(weaponId);
+            var fireRateOriginal = JsonCache.GetModOriginalFireRate(weaponId);
             var fireRateOverClock = CacheObject.TryGetFireRate(weaponId,
                 out var fireRate) ?
                 fireRate : fireRateOriginal;
-        
+            
+            if (previousMode == overclock && newMode != overclock)
+            {
+                log.Add($"[PatchFireMode] Exiting overclock mode -> Restoring original fire rate for {weaponId}.");
+                weapon.Template.bFirerate = fireRateOriginal;
+            }
+            
             switch (weapon.SelectedFireMode)
             {
                 case Weapon.EFireMode.fullauto:
@@ -83,7 +90,9 @@ namespace TimeStretch.Patches
                 case Weapon.EFireMode.semiauto:
                     HandleFireModeChange(weaponId, nameof(Weapon.EFireMode.semiauto), "Current fire mode: Semi-auto.", log);
                     break;
-        
+
+                case Weapon.EFireMode.grenadeThrowing:
+                case Weapon.EFireMode.greanadePlanting:
                 default:
                     HandleFireModeChange(weaponId, weapon.SelectedFireMode.ToString(), $"⚠️ Unknown fire mode detected: {weapon.SelectedFireMode}", log);
                     break;

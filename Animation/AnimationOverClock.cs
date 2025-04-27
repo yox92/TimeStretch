@@ -16,7 +16,7 @@ namespace TimeStretch.Animation
         private static int _overClockFireRate = 500;
         private static bool _isActive;
         private static readonly object Lock = new object();
-        
+
         private static AnimationOverClock _instance;
         private static Coroutine _delayCoroutine;
         private const float DelayBeforeTransform = 1f;
@@ -74,7 +74,7 @@ namespace TimeStretch.Animation
         {
             // Ensure that the instance is correctly defined
             _instance = this;
-            
+
             // Register component initialization
             BatchLogger.Info("[AnimationOverClock] Component initialized");
             BatchLogger.Info("[AnimationOverClock] Searching for equipped weapon...");
@@ -94,6 +94,7 @@ namespace TimeStretch.Animation
             BatchLogger.Info(
                 $"[AnimationOverClock] Initialization with cached fire rate: {_overClockFireRate} RPM for {currentWeaponId}");
         }
+
         /// <summary>
         /// Updates the fire rate based on keyboard input.
         /// Checks for increase/decrease via configurable bindings and alternative shortcut.
@@ -112,22 +113,14 @@ namespace TimeStretch.Animation
                 return;
             }
 
-            if (Plugin.KeyboardBindingDown.Value.IsDown())
-            {
-                OverClockUtils.DecreaseFireRate(weaponId, ref _overClockFireRate);
-                ApplyFireModeChange(weaponId, _overClockFireRate);
-                BatchLogger.Info($"[AnimationOverClock] Fire rate decreased: {_overClockFireRate} RPM");
+            if (!Plugin.KeyboardBindingDown.Value.IsDown()) 
                 return;
-            }
-
-            // Alternative shortcut that uses Ctrl+B
-            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.B))
-            {
-                OverClockUtils.IncreaseFireRate(weaponId, ref _overClockFireRate);
-                ApplyFireModeChange(weaponId, _overClockFireRate);
-                BatchLogger.Info($"[AnimationOverClock] New fire rate: {_overClockFireRate} RPM");
-            }
+            OverClockUtils.DecreaseFireRate(weaponId, ref _overClockFireRate);
+            ApplyFireModeChange(weaponId, _overClockFireRate);
+            BatchLogger.Info($"[AnimationOverClock] Fire rate decreased: {_overClockFireRate} RPM");
+            return;
         }
+
         /// <summary>
         /// Applies the fire rate change to the current weapon
         /// </summary>
@@ -146,11 +139,11 @@ namespace TimeStretch.Animation
             CacheObject.RegisterFireRate(weaponId, overClockFireRate);
             BatchLogger.Info($"[AnimationOverClock] Fire rate updated: {overClockFireRate} RPM for {weaponId}");
 
-            // Nettoie le cache pour s'assurer que les transformations précédentes ne causent pas de problèmes
-            CacheObject.ClearFireModeCache();
+            // Nettoie le cache de l'arme pour s'assurer que les transformations précédentes ne causent pas de problèmes
+            CacheObject.ClearFireModeCacheForWeapon(weaponId);
             BatchLogger.Info($"[AnimationOverClock] Cleaning FireModeCache");
 
-            CleanupPreviousCoroutine();
+            CleanupPreviousCoroutine(weaponId);
             if (!_instance)
                 return;
 
@@ -163,6 +156,12 @@ namespace TimeStretch.Animation
         /// <param name="weaponId">ID of the weapon whose sounds need to be transformed</param>
         private static void StartDelayedAudioTransformation(string weaponId)
         {
+            if (_delayCoroutine != null)
+            {
+                _instance.StopCoroutine(_delayCoroutine);
+                _delayCoroutine = null;
+            }
+
             _delayCoroutine = _instance.StartCoroutine(DelayedAudioTransformCoroutine(weaponId));
             BatchLogger.Info($"[AnimationOverClock] Starting transformation delay for {weaponId}");
         }
@@ -171,12 +170,27 @@ namespace TimeStretch.Animation
         /// Stops and cleans up the previous coroutine if it exists.
         /// Helps avoid conflicts when changing fire rate.
         /// </summary>
-        private static void CleanupPreviousCoroutine()
+        private static void CleanupPreviousCoroutine(string weaponId)
         {
-            if (_delayCoroutine == null || !_instance)
-                return;
-            _instance.StopCoroutine(_delayCoroutine);
-            _delayCoroutine = null;
+            if (_delayCoroutine != null && _instance)
+            {
+                _instance.StopCoroutine(_delayCoroutine);
+                _delayCoroutine = null;
+            }
+
+            // 🔥 En plus : on retire l'arme des queues pour éviter de retraiter un ancien fireRate
+            lock (CacheObject.FireModeEnqueuedWeapons)
+            {
+                CacheObject.FireModeEnqueuedWeapons.Remove(weaponId);
+            }
+
+            lock (CacheObject.FireModeWeaponQueue)
+            {
+                var newQueue = new Queue<string>(CacheObject.FireModeWeaponQueue.Where(w => w != weaponId));
+                CacheObject.FireModeWeaponQueue.Clear();
+                foreach (var w in newQueue)
+                    CacheObject.FireModeWeaponQueue.Enqueue(w);
+            }
         }
 
         /// <summary>

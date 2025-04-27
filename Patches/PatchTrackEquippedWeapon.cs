@@ -32,6 +32,7 @@ namespace TimeStretch.Patches
                 BatchLogger.Log($"🛑 Skip not local player {__instance.IsYourPlayer}");
                 return;
             }
+            CoroutineRunner.Run(DelayedTryInitializeOverClock(__instance));
 
             var hash = __instance.GetHashCode();
             var currentHands = __instance.HandsController;
@@ -102,12 +103,6 @@ namespace TimeStretch.Patches
                                 yield break;
                             }
                             CacheObject.SetWeaponIdOnHand(weapon.TemplateId);
-
-                            if (weapon.Template?.bFirerate is > 300 and < 1500)
-                            {
-                                CacheObject.RegisterFireRate(currentWeaponId, weapon.Template.bFirerate);
-                                AnimationOverClock.Initialize();
-                            }
                             
                             // 🔐 Nouveau verrou
                             if (!CacheObject.ProcessingWeapons.Add(currentWeaponId))
@@ -259,6 +254,50 @@ namespace TimeStretch.Patches
             {
                 BatchLogger.Log($"❌ Exception dans thread audio : {ex}");
                 _isRunning = false;
+            }
+        }
+
+        private static IEnumerator DelayedTryInitializeOverClock(Player player)
+        {
+            yield return new WaitForSeconds(1.0f);
+            if (player == null || player.HandsController == null || !player.HealthController.IsAlive)
+            {
+                BatchLogger.Log("❌ TryInitializeOverClock: Player, HandsController is null or player is not alive");
+                yield break;
+            }
+
+            if (player.HandsController.Item is Weapon weapon)
+            {
+                if (string.IsNullOrEmpty(weapon.TemplateId) || weapon.TemplateId.ToString() is not { Length: 24 })
+                {
+                    BatchLogger.Log("❌ TryInitializeOverClock: Invalid TemplateId");
+                    yield break;
+                }
+
+                var originaleFireRateMod = JsonCache.GetModOriginalFireRate(weapon.TemplateId);
+                if (originaleFireRateMod is > 300 and < 1500)
+                {
+                    if (!CacheObject.TryGetFireRate(weapon.TemplateId, out _))
+                    {
+                        CacheObject.RegisterFireRate(weapon.TemplateId, originaleFireRateMod);
+                        BatchLogger.Log($"✅ [TryInitializeOverClock] First time: FireRate cached {weapon.TemplateId} = {originaleFireRateMod} RPM");
+                    }
+                    else
+                    {
+                        BatchLogger.Log($"ℹ️ [TryInitializeOverClock] FireRate already known for {weapon.TemplateId}, no overwrite.");
+                    }
+
+                    AnimationOverClock.Initialize();
+                    BatchLogger.Log($"✅ [TryInitializeOverClock] AnimationOverClock initialized for {weapon.TemplateId} with bFirerate {originaleFireRateMod}");
+                }
+                else
+                {
+                    BatchLogger.Log($"❌ TryInitializeOverClock: Invalid bFirerate {originaleFireRateMod}");
+                }
+            }
+            else
+            {
+                BatchLogger.Log("❌ TryInitializeOverClock: Item is not a Weapon");
             }
         }
     }
