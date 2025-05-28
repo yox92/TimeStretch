@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using EFT;
+using EFT.InventoryLogic;
 using TimeStretch.Entity;
 using TimeStretch.Utils;
 using UnityEngine;
@@ -156,6 +157,8 @@ namespace TimeStretch.Cache
         /// </summary>
         private static string _weaponIdOnHand;
         
+        private static Weapon.EFireMode[] _weaponFireModeOnHand;
+        
         // =====================================================================
         // INIT & RESET
         // =====================================================================
@@ -163,7 +166,22 @@ namespace TimeStretch.Cache
         {
             return _weaponIdOnHand;
         }
+        
+        public static Weapon.EFireMode[] GetWeaponFireModeOnHand()
+        {
+            return _weaponFireModeOnHand;
+        }
 
+        public static void SetWeaponFireModeOnHand(Weapon.EFireMode[] fireModes)
+        {
+            _weaponFireModeOnHand = fireModes;
+            foreach (var variable in fireModes)
+            {
+                BatchLogger.Info($"🔗 WeaponOnHand fire mode : {variable}");
+            }
+            
+        }
+     
         public static void SetWeaponIdOnHand(string id)
         {
             _weaponIdOnHand = id; 

@@ -86,13 +86,11 @@ namespace TimeStretch.Animation
                 : $"[AnimationOverClock] Equipped weapon found: {currentWeaponId}");
 
             // If a weapon is equipped and has a cached fire rate, use it
-            if (string.IsNullOrEmpty(currentWeaponId) || !CacheObject.TryGetFireRate(currentWeaponId,
-                    out var cachedFireRate))
+            if (string.IsNullOrEmpty(currentWeaponId) || !CacheObject.TryGetFireRate(currentWeaponId, out var cachedFireRate))
                 return;
 
             _overClockFireRate = cachedFireRate;
-            BatchLogger.Info(
-                $"[AnimationOverClock] Initialization with cached fire rate: {_overClockFireRate} RPM for {currentWeaponId}");
+            BatchLogger.Info($"[AnimationOverClock] Initialization with cached fire rate: {_overClockFireRate} RPM for {currentWeaponId}");
         }
 
         /// <summary>
@@ -102,8 +100,16 @@ namespace TimeStretch.Animation
         private void Update()
         {
             var weaponId = CacheObject.GetWeaponIdOnHand();
-            if (string.IsNullOrEmpty(weaponId))
+            var onlySingleShotWeapon = CacheObject.GetWeaponFireModeOnHand().Length <= 1;
+            
+            if (string.IsNullOrEmpty(weaponId) )
                 return;
+            
+            if (onlySingleShotWeapon)
+            {
+                BatchLogger.Info($"[AnimationOverClock] weapon only single fire mod");
+                return;
+            }
 
             if (Plugin.KeyboardBindingUp.Value.IsDown())
             {

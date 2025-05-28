@@ -25,17 +25,26 @@ namespace TimeStretch.Patches
         {
             var log = new List<string>();
             log.Add(" Prefix: Invoked for ChangeFireMode.");
-        
+
             var weapon = InitializeWeapon(__instance, log);
             if (weapon == null)
             {
                 BatchLogger.Block(log);
                 return true;
             }
-        
+
+            var onlySingleShotWeapon = weapon.Template.weapFireType.Length <= 1;
+
+            if (onlySingleShotWeapon)
+            {
+                log.Add("✖ Stop here, single shot only");
+                BatchLogger.Block(log);
+                return true;
+            }
+            
             var modes = weapon.Template.weapFireType.ToList();
             const Weapon.EFireMode overclock = (Weapon.EFireMode)0x08;
-        
+
             if (!modes.Contains(overclock))
             {
                 modes.Add(overclock);

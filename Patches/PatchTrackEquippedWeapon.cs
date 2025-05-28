@@ -103,6 +103,7 @@ namespace TimeStretch.Patches
                                 yield break;
                             }
                             CacheObject.SetWeaponIdOnHand(weapon.TemplateId);
+                            CacheObject.SetWeaponFireModeOnHand(weapon.Template.weapFireType);
                             
                             // 🔐 Nouveau verrou
                             if (!CacheObject.ProcessingWeapons.Add(currentWeaponId))
